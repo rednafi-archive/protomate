@@ -9,6 +9,8 @@ sudo nano ~/.bashrc
 Put your password add the following lines to the end of the ```bashrc``` file:
 
 ```
-export GITHUB_USERNAME="rednafi"
-export GITHUB_PASSWORD="Nightfall15873"
+export GITHUB_USERNAME="your-github-username"
+export GITHUB_PASSWORD="your-github-password"
 ```
+
+Save the edit by ```ctrl+O``` and exit via pressing ```ctrl+x```.
