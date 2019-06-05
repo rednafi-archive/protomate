@@ -13,19 +13,19 @@ This will perform the following tasks:
 
 ## Installation
 
-1. clone the repository in your project folder
+* clone the repository in your project folder
 
 ```
 git clone https://github.com/rednafi/protomate.git
 ```
 
-2. install PyGithub
+* install PyGithub
 
 ```
 pip install --user PyGithub
 ```
 
-3. open ```bashrc``` via the following command:
+* open ```bashrc``` via the following command:
 
 ```
 sudo nano ~/.bashrc
@@ -45,7 +45,7 @@ function create() {
 
 Save the edit by ```ctrl+O``` and exit via pressing ```ctrl+x```.
 
-4. source the ```bashrc``` file 
+* source the ```bashrc``` file 
 
 ```
 source ~/.bashrc
