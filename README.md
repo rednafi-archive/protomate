@@ -19,12 +19,6 @@ This will perform the following tasks:
 git clone https://github.com/rednafi/protomate.git
 ```
 
-or via ssh
-
-```
-git clone https://github.com/rednafi/protomate.git
-```
-
 * Install ```PyGithub```
 
 ```
