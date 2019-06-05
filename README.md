@@ -6,8 +6,7 @@ This will perform the following tasks:
 * initialize a git repository
 * create a remote repository
 * add remote to the local repository 
-* add a readme file
-* add a license file 
+* add a readme file 
 * perform initial stage, commit, push 
 * open the project folder in vscode
 
