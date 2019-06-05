@@ -13,7 +13,13 @@ This will perform the following tasks:
 
 ## Installation
 
-* clone the repository in your project folder
+* clone the repository in your main project folder (where all of your project folders will reside)
+
+```
+git clone https://github.com/rednafi/protomate.git
+```
+
+or via ssh
 
 ```
 git clone https://github.com/rednafi/protomate.git
@@ -30,7 +36,7 @@ pip install --user PyGithub
 ```
 sudo nano ~/.bashrc
 ```
-Put your password add the following lines to the end of the ```bashrc``` file:
+Add the following lines to the end of the ```bashrc``` file (Don't forget to change the dummy credentials):
 
 ```
 export GITHUB_USERNAME="your-github-username"       #e.g. flunkypuppy
@@ -40,7 +46,6 @@ export PROJECT_PATH="your-project-path"             #e.g. /home/redowan/code/
 function create() {
   python "${PROJECT_PATH}/protomate/src/create.py" $1
 }
-
 ```
 
 Save the edit by ```ctrl+O``` and exit via pressing ```ctrl+x```.
@@ -49,7 +54,6 @@ Save the edit by ```ctrl+O``` and exit via pressing ```ctrl+x```.
 
 ```
 source ~/.bashrc
-
 ```
 
 ### Run the App
@@ -58,7 +62,6 @@ To create a new project in your designated project folder, simply write -
 
 ```
 create your-new-project-name
-
 ```
 
 This should create a new local and remote git repository, connect them and open vs code for you to start coding immediately.
