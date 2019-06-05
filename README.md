@@ -1,19 +1,19 @@
 # protomate
 This will perform the following tasks:
 
-* create a new project folder in your designated directory 
-* navigate into the folder  
-* initialize a git repository
-* create a remote repository
-* add remote to the local repository 
-* add a readme file 
-* perform initial stage, commit, push 
-* open the project folder in vscode
+* Create a new project folder in your designated directory 
+* Navigate into the folder  
+* Initialize a git repository
+* Create a remote repository
+* Add remote to the local repository 
+* Add a readme file 
+* Perform initial stage, commit, push 
+* Open the project folder in vscode
 
 
 ## Installation
 
-* clone the repository in your main project folder (where all of your project folders will reside)
+* Clone the repository in your main project folder (where all of your project folders will reside)
 
 ```
 git clone https://github.com/rednafi/protomate.git
@@ -25,13 +25,13 @@ or via ssh
 git clone https://github.com/rednafi/protomate.git
 ```
 
-* install PyGithub
+* Install ```PyGithub```
 
 ```
 pip install --user PyGithub
 ```
 
-* open ```bashrc``` via the following command:
+* Open ```bashrc``` via the following command:
 
 ```
 sudo nano ~/.bashrc
@@ -50,7 +50,7 @@ function create() {
 
 Save the edit by ```ctrl+O``` and exit via pressing ```ctrl+x```.
 
-* source the ```bashrc``` file 
+* Source the ```bashrc``` file 
 
 ```
 source ~/.bashrc
