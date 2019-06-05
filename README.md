@@ -56,7 +56,7 @@ Save the edit by ```ctrl+O``` and exit via pressing ```ctrl+x```.
 source ~/.bashrc
 ```
 
-### Run the App
+## Run the App
 
 To create a new project in your designated project folder, simply write -
 
