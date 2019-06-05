@@ -36,7 +36,7 @@ pip install --user PyGithub
 ```
 sudo nano ~/.bashrc
 ```
-Add the following lines to the end of the ```bashrc``` file (Don't forget to change the dummy credentials):
+Add the following lines to the end of the ```bashrc``` file. Change replace the three variables: ```GITHUB_USERNAME```, ```GITHUB_PASSWORD``` and ```PROJECT_PATH``` with relevant values.
 
 ```
 export GITHUB_USERNAME="your-github-username"       #e.g. flunkypuppy
