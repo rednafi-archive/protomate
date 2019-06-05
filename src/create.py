@@ -16,11 +16,11 @@ except:
 repo_name = str(sys.argv[1])
 full_path = path + repo_name
 
-# creation of local repository
-
+# checking if the local repository already exists
 if os.path.exists(full_path):
     print("local repository '{}' exists".format(repo_name))
 
+# creation of local and remote repository
 elif not os.path.exists(full_path):
     os.mkdir(full_path)
     try:
@@ -46,7 +46,5 @@ elif not os.path.exists(full_path):
         print("remote repository '{}' already exists".format(repo_name))
 
 else:
-    pass 
-
-
+    pass
 
