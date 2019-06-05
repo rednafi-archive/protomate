@@ -1,6 +1,7 @@
 # protomate
 
 ![Alt Text](gif/demo.gif)
+
 This will perform the following tasks:
 
 * Create a new project folder in your designated directory 
