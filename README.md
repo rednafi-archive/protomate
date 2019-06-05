@@ -33,12 +33,12 @@ sudo nano ~/.bashrc
 Put your password add the following lines to the end of the ```bashrc``` file:
 
 ```
-export GITHUB_USERNAME="your-github-username"
-export GITHUB_PASSWORD="your-gihub-password"
-export PROJECT_PATH="your-project-path"
+export GITHUB_USERNAME="your-github-username"       #e.g. flunkypuppy
+export GITHUB_PASSWORD="your-gihub-password"        #e.g. 1234
+export PROJECT_PATH="your-project-path"             #e.g. /home/redowan/code/
 
 function create() {
-  python "${PROJECT_PATH}protomate/src/create.py" $1
+  python "${PROJECT_PATH}/protomate/src/create.py" $1
 }
 
 ```
@@ -61,4 +61,5 @@ create your-new-project-name
 
 ```
 
-This should create a new local and remote git repository, connect them and open vs code for you code immediately!!!
+This should create a new local and remote git repository, connect them and open vs code for you to start coding immediately.
+
