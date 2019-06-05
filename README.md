@@ -13,48 +13,48 @@ This will perform the following tasks:
 
 ## Installation
 
-1. Clone the repository in your main project folder (where all of your project folders will reside)
+* Clone the repository in your main project folder (where all of your project folders will reside)
 
-  ```
-  git clone https://github.com/rednafi/protomate.git
-  ```
+```
+git clone https://github.com/rednafi/protomate.git
+```
 
 or via ssh
 
-  ```
-  git clone https://github.com/rednafi/protomate.git
-  ```
+```
+git clone https://github.com/rednafi/protomate.git
+```
 
-2. Install ```PyGithub```
+* Install ```PyGithub```
 
-  ```
-  pip install --user PyGithub
-  ```
+```
+pip install --user PyGithub
+```
 
-3. Open ```bashrc``` via the following command:
+* Open ```bashrc``` via the following command:
 
-  ```
-  sudo nano ~/.bashrc
-  ```
+```
+sudo nano ~/.bashrc
+```
 Add the following lines to the end of the ```bashrc``` file (Don't forget to change the dummy credentials):
 
-  ```
-  export GITHUB_USERNAME="your-github-username"       #e.g. flunkypuppy
-  export GITHUB_PASSWORD="your-gihub-password"        #e.g. 1234
-  export PROJECT_PATH="your-project-path"             #e.g. /home/redowan/code/
+```
+export GITHUB_USERNAME="your-github-username"       #e.g. flunkypuppy
+export GITHUB_PASSWORD="your-gihub-password"        #e.g. 1234
+export PROJECT_PATH="your-project-path"             #e.g. /home/redowan/code/
 
-  function create() {
-    python "${PROJECT_PATH}/protomate/src/create.py" $1
-  }
-  ```
+function create() {
+  python "${PROJECT_PATH}/protomate/src/create.py" $1
+}
+```
 
 Save the edit by ```ctrl+O``` and exit via pressing ```ctrl+x```.
 
 4. Source the ```bashrc``` file 
 
-  ```
-  source ~/.bashrc
-  ```
+```
+source ~/.bashrc
+```
 
 ## Run the App
 
