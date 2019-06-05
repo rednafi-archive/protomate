@@ -50,7 +50,7 @@ function create() {
 
 Save the edit by ```ctrl+O``` and exit via pressing ```ctrl+x```.
 
-4. Source the ```bashrc``` file 
+* Source the ```bashrc``` file 
 
 ```
 source ~/.bashrc
