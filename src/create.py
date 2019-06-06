@@ -4,6 +4,7 @@ from github import Github
 import subprocess
 import getpass
 
+
 def protomate():
     # extracting project path from bashrc
     try:
@@ -48,14 +49,15 @@ def protomate():
                 )
                 subprocess.check_output(cmd, shell=True)
                 print("local and remote repository successfully created")
-            
+
             except:
                 print("remote repository '{}' already exists".format(repo_name))
                 os.rmdir(local_path)
-                
+
         except:
             print("incorrect username or password")
             os.rmdir(local_path)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     protomate()
