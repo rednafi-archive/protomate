@@ -32,7 +32,7 @@ def protomate():
 
         try:
             user = Github(github_username, github_password).get_user()
-
+            
             try:
                 repo = user.create_repo(repo_name)
                 cmd = """
@@ -53,7 +53,7 @@ def protomate():
             except:
                 print("remote repository '{}' already exists".format(repo_name))
                 os.rmdir(local_path)
-
+                
         except:
             print("incorrect username or password")
             os.rmdir(local_path)
