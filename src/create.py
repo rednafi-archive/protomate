@@ -2,29 +2,36 @@ import sys
 import os
 from github import Github
 import subprocess
+import getpass
 
-# extracting project path, github username and password from bashrc
+# prompting for credentials
 try:
-    username = os.environ["GITHUB_USERNAME"]
-    password = os.environ["GITHUB_PASSWORD"]
-    path = os.environ["PROJECT_PATH"]
+    github_username = str(input("github_username :"))
+    github_password = str(getpass.getpass(prompt="github_password: "))
 
 except:
-    print("bashrc variables are not found")
+    print("username or password is incorrect")
 
-# repository name
-repo_name = str(sys.argv[1])
-full_path = path + repo_name
+# extracting project path from bashrc
+try:
+    project_path = os.environ["PROJECT_PATH"]
+
+except:
+    print("project path not found")
+
+# prompting for repository name
+repo_name = str(input("repository_name :"))
+local_path = project_path + repo_name
 
 # checking if the local repository already exists
-if os.path.exists(full_path):
+if os.path.exists(local_path):
     print("local repository '{}' exists".format(repo_name))
 
 # creation of local and remote repository
-elif not os.path.exists(full_path):
-    os.mkdir(full_path)
+else:
+    os.mkdir(local_path)
     try:
-        user = Github(username, password).get_user()
+        user = Github(github_username, github_password).get_user()
         repo = user.create_repo(repo_name)
         cmd = """
             cd {0}
@@ -36,7 +43,7 @@ elif not os.path.exists(full_path):
             git push -u origin master
             code {0}
             """.format(
-            full_path, username, repo_name
+            local_path, github_username, repo_name
         )
         subprocess.check_output(cmd, shell=True)
 
@@ -44,7 +51,4 @@ elif not os.path.exists(full_path):
 
     except:
         print("remote repository '{}' already exists".format(repo_name))
-
-else:
-    pass
 

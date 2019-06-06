@@ -33,16 +33,16 @@ pip install --user PyGithub
 ```
 sudo nano ~/.bashrc
 ```
-Add the following lines to the end of the ```bashrc``` file. Change replace the three variables: ```GITHUB_USERNAME```, ```GITHUB_PASSWORD``` and ```PROJECT_PATH``` with relevant values.
+Add the following lines to the end of the ```bashrc``` file. Replace the value of the ```PROJECT_PATH``` variable with your own value.
 
 ```
-export GITHUB_USERNAME="your-github-username"       #e.g. flunkypuppy
-export GITHUB_PASSWORD="your-gihub-password"        #e.g. 1234
-export PROJECT_PATH="your-project-path"             #e.g. /home/redowan/code/
+# github protomate
+export PROJECT_PATH="your-own-project-path"           # e.g. /home/redowan/code/
 
 function create() {
   python "${PROJECT_PATH}/protomate/src/create.py" $1
 }
+
 ```
 
 Save the edit by ```ctrl+O``` and exit via pressing ```ctrl+x```.
@@ -61,5 +61,9 @@ To create a new project in your designated project folder, simply write -
 create your-new-project-name
 ```
 
-This should create a new local and remote git repository, connect them and open vs code for you to start coding immediately.
+This should: 
+
+* Prompt you to put your github credentials and repository name 
+* Create a new local and remote git repository
+* Connect them and open vs code for you to start coding immediately
 
