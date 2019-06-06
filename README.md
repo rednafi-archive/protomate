@@ -1,6 +1,6 @@
 # protomate
 
-![Alt Text](gif/demo.gif)
+![Alt Text](https://github.com/rednafi/protomate/blob/master/gif/demo.gif)
 
 This will perform the following tasks:
 
