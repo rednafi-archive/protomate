@@ -6,6 +6,19 @@ import getpass
 
 
 def protomate():
+"""
+This function,
+
+1. Looks for project path variable in the bashrc
+2. If path is found, it prompts for repository name
+3. Then it creates a local repository and prompts for github credentials
+4. If the credentials are correct, it creates a remote repositoy
+5. Links the remote repository to the local one
+6. Open vs code in the same directory
+
+This also shows indicative messages after the completion of each step. 
+"""
+    
     # extracting project path from bashrc
     try:
         project_path = os.environ["PROJECT_PATH"]
@@ -35,6 +48,7 @@ def protomate():
         try:
             if user.login:
                 print("login successful")
+
                 try:
                     repo = user.create_repo(repo_name)
                     cmd = """
@@ -63,6 +77,4 @@ def protomate():
 
 if __name__ == "__main__":
     protomate()
-
-
 
