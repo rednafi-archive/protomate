@@ -16,13 +16,13 @@ This will perform the following tasks:
 
 ## Installation
 
-Clone the repository in your main project folder (where all of your project folders will reside)
+Clone the repository in your main project folder (where all of your project folders will reside).
 
 ```
 git clone https://github.com/rednafi/protomate.git
 ```
 
-Install ```PyGithub```
+Install ```PyGithub```.
 
 ```
 pip install --user PyGithub
@@ -47,7 +47,7 @@ function create() {
 
 Save the edit by ```ctrl+O``` and exit via pressing ```ctrl+x```.
 
-Source the ```bashrc``` file 
+Source the ```bashrc``` file. 
 
 ```
 source ~/.bashrc
@@ -55,7 +55,7 @@ source ~/.bashrc
 
 ## Run the App
 
-To create a new project in your designated project folder, simply write -
+To create a new project in your designated project folder, simply write:
 
 ```
 create your-new-project-name
