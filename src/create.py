@@ -13,7 +13,7 @@ This function,
 2. If path is found, it prompts for repository name
 3. Then it creates a local repository and prompts for github credentials
 4. If the credentials are correct, it creates a remote repositoy
-5. Links the remote repository to the local one
+5. Links the remote repository with the local one
 6. Open vs code in the same directory
 
 This also shows indicative messages after the completion of each step. 
