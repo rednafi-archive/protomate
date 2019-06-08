@@ -77,5 +77,5 @@ if local_path:
 
 
 if __name__ == "__main__":
-protomate()
+    protomate()
 
