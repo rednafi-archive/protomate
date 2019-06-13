@@ -1,8 +1,0 @@
-setup.py
-protomate/__init__.py
-protomate.egg-info/PKG-INFO
-protomate.egg-info/SOURCES.txt
-protomate.egg-info/dependency_links.txt
-protomate.egg-info/not-zip-safe
-protomate.egg-info/requires.txt
-protomate.egg-info/top_level.txt
