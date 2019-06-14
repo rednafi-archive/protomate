@@ -1,2 +1,2 @@
-setuptools==40.6.3
+setuptools==41.0.1
 PyGithub==1.43.7
