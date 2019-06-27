@@ -22,7 +22,7 @@ def protomate():
 
     # extracting project path from bashrc
     try:
-        project_path = os.environ["PROJECT_PATH"]
+        project_path = os.environ['PROJECT_PATH']
 
     except:
         print("project path not found")
