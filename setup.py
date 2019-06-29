@@ -8,30 +8,26 @@ import io
 import os
 import sys
 from shutil import rmtree
-
 from setuptools import find_packages, setup, Command
 
 # Package meta-data.
 NAME = "Protomate"
-DESCRIPTION = "A command line tool to create github repositories and open your favorite editor automatically."
-URL = "https://github.com/redowan/protomate"
+DESCRIPTION = "A CLI tool for creating new github project"
+URL = "https://github.com/rednafi/protomate"
 EMAIL = "redowan.nafi@gmail.com"
-AUTHOR = "rednafi"
+AUTHOR = "Redowan"
 REQUIRES_PYTHON = ">=3.6.0"
 VERSION = "0.1.0"
 
 # What packages are required for this module to be executed?
-REQUIRED = ["colorama", "setuptools", "termcolor", "PyInquirer", "PyGithub", "pyfiglet"]
-
-# What packages are optional?
-EXTRAS = {
-    # 'fancy feature': ['django'],
-}
-
-# The rest you shouldn't have to touch too much :)
-# ------------------------------------------------
-# Except, perhaps the License and Trove Classifiers!
-# If you do change the License, remember to change the Trove Classifier for that!
+REQUIRED = [
+    "pyfiglet==0.8.post1",
+    "colorama==0.4.1",
+    "termcolor==1.1.0",
+    "PyInquirer==1.0.3",
+    "PyGithub==1.43.7",
+    "prompt_toolkit==1.0.14",
+]
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -72,18 +68,18 @@ class UploadCommand(Command):
 
     def run(self):
         try:
-            self.status("Removing previous builds…")
+            self.status("Removing previous builds...")
             rmtree(os.path.join(here, "dist"))
         except OSError:
             pass
 
-        self.status("Building Source and Wheel (universal) distribution…")
+        self.status("Building Source and Wheel (universal) distribution...")
         os.system("{0} setup.py sdist bdist_wheel --universal".format(sys.executable))
 
-        self.status("Uploading the package to PyPI via Twine…")
+        self.status("Uploading the package to PyPI via Twine...")
         os.system("twine upload dist/*")
 
-        self.status("Pushing git tags…")
+        self.status("Pushing git tags...")
         os.system("git tag v{0}".format(about["__version__"]))
         os.system("git push --tags")
 
@@ -101,19 +97,12 @@ setup(
     author_email=EMAIL,
     python_requires=REQUIRES_PYTHON,
     url=URL,
-    packages=find_packages(exclude=["tests", "*.tests", "*.tests.*", "tests.*"]),
-    # If your package is a single module, use this instead of 'packages':
-    # py_modules=['mypackage'],
-    # entry_points={
-    #     'console_scripts': ['mycli=mymodule:cli'],
-    # },
+    scripts=["protomate.py"],
+    entry_points={"console_scripts": ["protomate = protomate:main"]},
     install_requires=REQUIRED,
-    extras_require=EXTRAS,
     include_package_data=True,
     license="MIT",
     classifiers=[
-        # Trove classifiers
-        # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",

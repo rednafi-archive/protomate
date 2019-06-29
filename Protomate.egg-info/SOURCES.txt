@@ -1,0 +1,9 @@
+protomate.py
+setup.cfg
+setup.py
+Protomate.egg-info/PKG-INFO
+Protomate.egg-info/SOURCES.txt
+Protomate.egg-info/dependency_links.txt
+Protomate.egg-info/entry_points.txt
+Protomate.egg-info/requires.txt
+Protomate.egg-info/top_level.txt
