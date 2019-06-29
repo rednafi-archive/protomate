@@ -1,6 +1,6 @@
 pyfiglet==0.8.post1
 colorama==0.4.1
-setuptools==40.6.3
 termcolor==1.1.0
 PyInquirer==1.0.3
 PyGithub==1.43.7
+prompt_toolkit==1.0.14
