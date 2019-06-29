@@ -28,7 +28,7 @@ pip3 install protomate
 
 ## Run the App
 
-To create a new project in your designated project folder,first ```cd``` to your desired
+To create a new project in your designated project folder, first ```cd``` to your desired
 location:
 
 ```
