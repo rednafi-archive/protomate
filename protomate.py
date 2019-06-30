@@ -10,6 +10,7 @@ from github import Github
 from pyfiglet import figlet_format
 from PyInquirer import Token, print_json, prompt, style_from_dict
 from termcolor import cprint
+import languages
 
 init(strip=not sys.stdout.isatty())
 
@@ -42,6 +43,11 @@ def cli():
             "message": "Repository Type:",
             "choices": ["Public", "Private"],
         },
+        {
+            "type": "input",
+            "name": "gitignore",
+            "message": "(Optional) Please enter language name to create .gitignore file, press enter if you don't want.",
+        },
     ]
 
     answers = prompt(questions, style=style)
@@ -50,8 +56,9 @@ def cli():
     github_password = answers["github_password"]
     repo_name = answers["repo_name"]
     repo_type = answers["repo_type"]
+    gitignore = answers["gitignore"]
 
-    return github_username, github_password, repo_name, repo_type
+    return github_username, github_password, repo_name, repo_type, gitignore
 
 
 def authentication(github_username, github_password):
@@ -87,10 +94,8 @@ def create_local_repo(repo_name):
 
 def check_existing_repo(g, github_username, repo_name):
     try:
-        repo = g.get_repo("{}/{}".format(github_username, repo_name))
-        print(
-            "remoteExistsError: Remote repository '{}' already exists".format(repo_name)
-        )
+        _ = g.get_repo("{github_username}/{repo_name}")
+        print(f"remoteExistsError: Remote repository '{repo_name}' already exists")
         remote_exists = True
 
     except Exception:
@@ -112,26 +117,38 @@ def create_remote_repo(g, github_username, repo_name, repo_type):
             user.create_repo(repo_name, private=False)
     except Exception:
         remote_created = False
-        print("remoteCreateError: Cannot create remote repository '{}'".format(repo_name))
+        print(f"remoteCreateError: Cannot create remote repository '{repo_name}'")
 
     return remote_created
 
 
-def connect_local_to_remote(repo_name, github_username):
+def connect_local_to_remote(repo_name, github_username, gitignore):
 
     try:
-        cmd = """
-            cd {0}
-            git init
-            git remote add origin git@github.com:{1}/{0}.git
-            touch README.md
-            git add .
-            git commit -m "Initial commit"
-            git push -u origin master
-            code .
-            """.format(
-            repo_name, github_username
-        )
+        if gitignore != "" and gitignore.lower() in languages.PROGRAMMING_LANGUAGES:
+            cmd = f"""
+                cd {repo_name}
+                git init
+                git remote add origin git@github.com:{github_username}/{repo_name}.git
+                touch README.md
+                curl -X GET https://www.gitignore.io/api/{gitignore} > .gitignore
+                git add .
+                git commit -m "Initial commit"
+                git push -u origin master
+                code .
+                """
+
+        else:
+            cmd = f"""
+                cd {repo_name}
+                git init
+                git remote add origin git@github.com:{github_username}/{repo_name}.git
+                touch README.md
+                git add .
+                git commit -m "Initial commit"
+                git push -u origin master
+                code .
+                """
         subprocess.check_output(cmd, shell=True)
         print("Local and remote repository successfully created")
         connected = True
@@ -144,7 +161,8 @@ def connect_local_to_remote(repo_name, github_username):
 
 
 def main():
-    github_username, github_password, repo_name, repo_type = cli()
+    github_username, github_password, repo_name, repo_type, gitignore = cli()
+    print("Thanks for all your information, hang tight while we are at it")
 
     auth, g, user = authentication(github_username, github_password)
 
@@ -160,7 +178,9 @@ def main():
                 )
 
                 if remote_created:
-                    connected = connect_local_to_remote(repo_name, github_username)
+                    _ = connect_local_to_remote(
+                        repo_name, github_username, gitignore
+                    )
 
 
 if __name__ == "__main__":
