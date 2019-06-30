@@ -13,7 +13,7 @@ This will perform the following tasks:
 * Initialize a git repository
 * Create a remote repository
 * Add remote to the local repository 
-* Add a ```readme```.md file 
+* Add a ```readme.md``` file 
 * Add a ```.gitignore``` file specific for your language of choice
 * Perform initial stage, commit, push 
 * Open the project folder in vscode
@@ -51,7 +51,7 @@ This should:
   - Github credentials 
   - Repository name
   - Repository type (public/private)
-  - Language of .gitignore (python, javascript etc.). See a list of supported languages [here](https://github.com/rednafi/protomate/blob/master/languages.py).
+  - Language of ```.gitignore``` (python, javascript etc). See a list of all the supported [languages](https://github.com/rednafi/protomate/blob/master/languages.py).
 
 * Create a new local and remote git repository
 * Connect them and open vs code for you to start coding immediately
