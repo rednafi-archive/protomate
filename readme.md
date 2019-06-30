@@ -23,7 +23,7 @@ This will perform the following tasks:
 Perform pip install 
 
 ```
-pip3 install protomate
+pip install protomate
 ```
 
 ## Run the App
