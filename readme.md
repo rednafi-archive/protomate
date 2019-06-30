@@ -23,7 +23,10 @@ This will perform the following tasks:
 
 Install ```curl``` via the following command:
 
-```sudo apt-get install curl```
+```
+sudo apt-get install curl
+```
+Install ```protomate``` via:
 
 ```
 pip3 install protomate
