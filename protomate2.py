@@ -112,7 +112,9 @@ def create_remote_repo(g, github_username, repo_name, repo_type):
             user.create_repo(repo_name, private=False)
     except Exception:
         remote_created = False
-        print("remoteCreateError: Cannot create remote repository '{}'".format(repo_name))
+        print(
+            "remoteCreateError: Cannot create remote repository '{}'".format(repo_name)
+        )
 
     return remote_created
 
