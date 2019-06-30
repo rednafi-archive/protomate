@@ -9,21 +9,24 @@
 
 This will perform the following tasks:
 
-* Create a new project folder in your current folder
+* Create a new project folder in your **current** folder
 * Initialize a git repository
 * Create a remote repository
 * Add remote to the local repository 
-* Add a readme file 
+* Add a ```readme```.md file 
+* Add a ```.gitignore``` file specific for your language of choice
 * Perform initial stage, commit, push 
 * Open the project folder in vscode
 
 
 ## Installation
 
-Perform pip install 
+Install ```curl``` via the following command:
+
+```sudo apt-get install curl```
 
 ```
-pip install protomate
+pip3 install protomate
 ```
 
 ## Run the App
