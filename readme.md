@@ -41,6 +41,11 @@ protomate
 
 This should: 
 
-* Prompt you to put your github credentials and repository name, repository type (public/private)
+* Prompt you to put your 
+  - Github credentials 
+  - Repository name
+  - Repository type (public/private)
+  - Language of .gitignore (python, javascript etc.)
+
 * Create a new local and remote git repository
 * Connect them and open vs code for you to start coding immediately
