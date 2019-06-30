@@ -4,4 +4,4 @@ setuptools==40.6.3
 termcolor==1.1.0
 PyInquirer==1.0.3
 PyGithub==1.43.7
-prompt_toolkit==1.0.14
+prompt_toolkit==2.0.9
