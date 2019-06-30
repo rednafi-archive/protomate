@@ -10,6 +10,7 @@ from github import Github
 from pyfiglet import figlet_format
 from PyInquirer import Token, print_json, prompt, style_from_dict
 from termcolor import cprint
+
 import languages
 
 init(strip=not sys.stdout.isatty())
@@ -178,9 +179,7 @@ def main():
                 )
 
                 if remote_created:
-                    _ = connect_local_to_remote(
-                        repo_name, github_username, gitignore
-                    )
+                    _ = connect_local_to_remote(repo_name, github_username, gitignore)
 
 
 if __name__ == "__main__":
