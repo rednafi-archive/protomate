@@ -12,6 +12,7 @@ from PyInquirer import Token, print_json, prompt, style_from_dict
 from termcolor import cprint
 
 import languages
+import logging
 
 colorama.init(strip=not sys.stdout.isatty())
 
@@ -71,6 +72,7 @@ def authentication(github_username, github_password):
         user.login
 
     except Exception:
+        logging.logger.exception()
         sys.exit("AuthError: Username or password is incorrect")
 
     return (g, user)
@@ -138,7 +140,7 @@ def connect_local_to_remote(repo_name, github_username, gitignore):
 
 def main():
     github_username, github_password, repo_name, repo_type, gitignore = cli()
-    print("Thanks for all your information, hang tight while we are at it")
+    print("Thanks for all your information, hang tight while we are at it...")
 
     g, user = authentication(github_username, github_password)
 
