@@ -5,7 +5,7 @@ import subprocess
 import sys
 from pprint import pprint
 
-from colorama import init
+import colorama
 from github import Github
 from pyfiglet import figlet_format
 from PyInquirer import Token, print_json, prompt, style_from_dict
@@ -13,7 +13,7 @@ from termcolor import cprint
 
 import languages
 
-init(strip=not sys.stdout.isatty())
+colorama.init(strip=not sys.stdout.isatty())
 
 
 def cli():
@@ -69,40 +69,20 @@ def authentication(github_username, github_password):
 
     try:
         user.login
-        auth = True
 
     except Exception:
-        print("authError: Username or password is incorrect")
-        auth = False
+        sys.exit("AuthError: Username or password is incorrect")
 
-    return (auth, g, user)
+    return (g, user)
 
 
 def create_local_repo(repo_name):
 
     try:
         os.mkdir(repo_name)
-        local_exists = False
 
     except Exception:
-        print(
-            "localExistsError: Local repository '{}' already exists".format(repo_name)
-        )
-        local_exists = True
-
-    return local_exists
-
-
-def check_existing_repo(g, github_username, repo_name):
-    try:
-        _ = g.get_repo("{github_username}/{repo_name}")
-        print(f"remoteExistsError: Remote repository '{repo_name}' already exists")
-        remote_exists = True
-
-    except Exception:
-        remote_exists = False
-
-    return remote_exists
+        sys.exit(f"LocalExistsError: Local repository '{repo_name}' already exists")
 
 
 def create_remote_repo(g, github_username, repo_name, repo_type):
@@ -110,17 +90,16 @@ def create_remote_repo(g, github_username, repo_name, repo_type):
     user = g.get_user()
 
     try:
-        remote_created = True
         if repo_type == "Private":
             user.create_repo(repo_name, private=True)
 
         else:
             user.create_repo(repo_name, private=False)
     except Exception:
-        remote_created = False
-        print(f"remoteCreateError: Cannot create remote repository '{repo_name}'")
 
-    return remote_created
+        sys.exit(
+            f"RemoteCreationError: Remote repository '{repo_name}' already exists "
+        )
 
 
 def connect_local_to_remote(repo_name, github_username, gitignore):
@@ -152,34 +131,22 @@ def connect_local_to_remote(repo_name, github_username, gitignore):
                 """
         subprocess.check_output(cmd, shell=True)
         print("Local and remote repository successfully created")
-        connected = True
 
     except Exception:
-        print("Local and remote repo can't be connected")
-        connected = False
-
-    return connected
+        sys.exit("Local and remote repository cannot be connected")
 
 
 def main():
     github_username, github_password, repo_name, repo_type, gitignore = cli()
     print("Thanks for all your information, hang tight while we are at it")
 
-    auth, g, user = authentication(github_username, github_password)
+    g, user = authentication(github_username, github_password)
 
-    if auth:
-        local_exists = create_local_repo(repo_name)
+    create_local_repo(repo_name)
 
-        if not local_exists:
-            remote_exists = check_existing_repo(g, github_username, repo_name)
+    create_remote_repo(g, github_username, repo_name, repo_type)
 
-            if not remote_exists:
-                remote_created = create_remote_repo(
-                    g, github_username, repo_name, repo_type
-                )
-
-                if remote_created:
-                    _ = connect_local_to_remote(repo_name, github_username, gitignore)
+    connect_local_to_remote(repo_name, github_username, gitignore)
 
 
 if __name__ == "__main__":
