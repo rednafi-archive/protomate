@@ -2,3 +2,4 @@ __pycache__/
 venv/
 dist/
 Protomate.egg-info/
+.vscode/

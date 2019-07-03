@@ -1,5 +1,4 @@
 import getpass
-from loguru import logger
 import os
 import shutil
 import subprocess
@@ -8,6 +7,7 @@ from pprint import pprint
 
 import colorama
 from github import Github
+from loguru import logger
 from pyfiglet import figlet_format
 from PyInquirer import Token, print_json, prompt, style_from_dict
 from termcolor import cprint
