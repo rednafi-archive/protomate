@@ -1,12 +1,32 @@
--------------||time:2019-07-03T16:18:53.899127+0600||level:ERROR||-------------
+-------------||time:2019-07-03T16:47:58.319235+0600||level:ERROR||-------------
+[Errno 17] File exists: 'reddington'
+
+-------------||time:2019-07-03T16:48:47.445801+0600||level:ERROR||-------------
+422 {'message': 'Repository creation failed.', 'errors': [{'resource': 'Repository', 'code': 'custom', 'field': 'name', 'message': 'name already exists on this account'}], 'documentation_url': 'https://developer.github.com/v3/repos/#create'}
+
+Traceback (most recent call last):
+  File "/media/redowan/New Volume/protomate/protomate.py", line 182, in <module>
+    main()
+  File "/media/redowan/New Volume/protomate/protomate.py", line 176, in main
+    create_remote_repo(g, github_username, repo_name, repo_type)
+> File "/media/redowan/New Volume/protomate/protomate.py", line 109, in create_remote_repo
+    user.create_repo(repo_name, private=True)
+  File "/home/redowan/anaconda3/envs/proto/lib/python3.7/site-packages/github/AuthenticatedUser.py", line 599, in create_repo
+    input=post_parameters
+  File "/home/redowan/anaconda3/envs/proto/lib/python3.7/site-packages/github/Requester.py", line 275, in requestJsonAndCheck
+    return self.__check(*self.requestJson(verb, url, parameters, headers, input, self.__customConnection(url)))
+  File "/home/redowan/anaconda3/envs/proto/lib/python3.7/site-packages/github/Requester.py", line 286, in __check
+    raise self.__createException(status, responseHeaders, output)
+github.GithubException.GithubException: 422 {'message': 'Repository creation failed.', 'errors': [{'resource': 'Repository', 'code': 'custom', 'field': 'name', 'message': 'name already exists on this account'}], 'documentation_url': 'https://developer.github.com/v3/repos/#create'}
+-------------||time:2019-07-03T16:57:06.585044+0600||level:ERROR||-------------
 401 {'message': 'Bad credentials', 'documentation_url': 'https://developer.github.com/v3'}
 
 Traceback (most recent call last):
-  File "/media/redowan/New Volume/protomate/scraps.py", line 170, in <module>
+  File "/media/redowan/New Volume/protomate/protomate.py", line 183, in <module>
     main()
-  File "/media/redowan/New Volume/protomate/scraps.py", line 160, in main
+  File "/media/redowan/New Volume/protomate/protomate.py", line 173, in main
     g, user = authentication(github_username, github_password)
-> File "/media/redowan/New Volume/protomate/scraps.py", line 84, in authentication
+> File "/media/redowan/New Volume/protomate/protomate.py", line 84, in authentication
     user.login
   File "/home/redowan/anaconda3/envs/proto/lib/python3.7/site-packages/github/AuthenticatedUser.py", line 230, in login
     self._completeIfNotSet(self._login)
@@ -21,3 +41,6 @@ Traceback (most recent call last):
   File "/home/redowan/anaconda3/envs/proto/lib/python3.7/site-packages/github/Requester.py", line 286, in __check
     raise self.__createException(status, responseHeaders, output)
 github.GithubException.BadCredentialsException: 401 {'message': 'Bad credentials', 'documentation_url': 'https://developer.github.com/v3'}
+-------------||time:2019-07-03T16:57:27.442568+0600||level:ERROR||-------------
+[Errno 17] File exists: 'reddington'
+
