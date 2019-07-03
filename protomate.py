@@ -1,4 +1,5 @@
 import getpass
+from loguru import logger
 import os
 import shutil
 import subprocess
@@ -14,6 +15,18 @@ from termcolor import cprint
 import languages
 
 colorama.init(strip=not sys.stdout.isatty())
+
+LOG_FILENAME = "logfile.log"
+
+logger.remove(0)
+logger.add(
+    LOG_FILENAME,
+    format="-------------||time:{time}||level:{level}||-------------\n{message}\n",
+    level="ERROR",
+    backtrace=True,
+    diagnose=False,
+    enqueue=True,
+)
 
 
 def cli():
@@ -70,7 +83,8 @@ def authentication(github_username, github_password):
     try:
         user.login
 
-    except Exception:
+    except Exception as e:
+        logger.exception(e)
         sys.exit("AuthError: Username or password is incorrect")
 
     return (g, user)
@@ -81,7 +95,8 @@ def create_local_repo(repo_name):
     try:
         os.mkdir(repo_name)
 
-    except Exception:
+    except Exception as e:
+        logger.error(e)
         sys.exit(f"LocalExistsError: Local repository '{repo_name}' already exists")
 
 
@@ -95,8 +110,8 @@ def create_remote_repo(g, github_username, repo_name, repo_type):
 
         else:
             user.create_repo(repo_name, private=False)
-    except Exception:
-
+    except Exception as e:
+        logger.exception(e)
         sys.exit(
             f"RemoteCreationError: Remote repository '{repo_name}' already exists "
         )
@@ -132,12 +147,14 @@ def connect_local_to_remote(repo_name, github_username, gitignore):
         subprocess.check_output(cmd, shell=True)
         print("Local and remote repository successfully created")
 
-    except Exception:
+    except Exception as e:
+        logger.exception(e)
         sys.exit("Local and remote repository cannot be connected")
 
 
 def main():
     github_username, github_password, repo_name, repo_type, gitignore = cli()
+    print("")
     print("Thanks for all your information, hang tight while we are at it...")
 
     g, user = authentication(github_username, github_password)
