@@ -60,7 +60,7 @@ def cli():
         {
             "type": "input",
             "name": "gitignore",
-            "message": "(Optional) Please enter language name to create .gitignore file, press enter if you don't want.",
+            "message": "(Optional) Please enter language name to create .gitignore file,\n press enter if you don't want to:",
         },
     ]
 
@@ -119,9 +119,18 @@ def create_remote_repo(g, github_username, repo_name, repo_type):
 
 def connect_local_to_remote(repo_name, github_username, gitignore):
 
-    try:
-        if gitignore != "" and gitignore.lower() in languages.PROGRAMMING_LANGUAGES:
-            cmd = f"""
+    cmd = f"""
+            cd {repo_name}
+            git init
+            git remote add origin git@github.com:{github_username}/{repo_name}.git
+            touch README.md
+            git add .
+            git commit -m "Initial commit"
+            git push -u origin master
+            code .
+                """
+
+    cmd_gitignore = f"""
                 cd {repo_name}
                 git init
                 git remote add origin git@github.com:{github_username}/{repo_name}.git
@@ -133,18 +142,22 @@ def connect_local_to_remote(repo_name, github_username, gitignore):
                 code .
                 """
 
+    try:
+        if gitignore != "" and gitignore.lower() in languages.PROGRAMMING_LANGUAGES:
+            cmd_gitignore
+            subprocess.check_output(cmd_gitignore, shell=True)
+
+        elif (
+            gitignore != "" and gitignore.lower() not in languages.PROGRAMMING_LANGUAGES
+        ):
+            print("Language not supported:\n Creating repository without .gitignore")
+            cmd
+            subprocess.check_output(cmd, shell=True)
+
         else:
-            cmd = f"""
-                cd {repo_name}
-                git init
-                git remote add origin git@github.com:{github_username}/{repo_name}.git
-                touch README.md
-                git add .
-                git commit -m "Initial commit"
-                git push -u origin master
-                code .
-                """
-        subprocess.check_output(cmd, shell=True)
+            cmd
+            subprocess.check_output(cmd, shell=True)
+
         print("Local and remote repository successfully created")
 
     except Exception as e:
