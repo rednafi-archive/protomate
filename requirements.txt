@@ -1,6 +1,5 @@
 loguru==0.3.0
 pyfiglet==0.8.post1
-setuptools==41.0.1
 termcolor==1.1.0
 colorama==0.4.1
 PyInquirer==1.0.3
