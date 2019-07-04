@@ -12,11 +12,11 @@ from pyfiglet import figlet_format
 from PyInquirer import Token, print_json, prompt, style_from_dict
 from termcolor import cprint
 
-import languages
+import protomate.languages as languages
 
 colorama.init(strip=not sys.stdout.isatty())
 
-LOG_FILENAME = "logfile.log"
+LOG_FILENAME = "logs/logfile.log"
 
 logger.remove(0)
 logger.add(
@@ -26,6 +26,7 @@ logger.add(
     backtrace=True,
     diagnose=False,
     enqueue=True,
+    rotation="1 MB",
 )
 
 
