@@ -29,7 +29,7 @@ sudo apt-get install curl
 Install ```protomate``` via:
 
 ```
-pip install protomate
+pip install protomate==0.1.8
 ```
 
 ## Run the App
