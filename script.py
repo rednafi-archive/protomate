@@ -31,7 +31,7 @@ logger.add(
 
 def cli():
 
-    text = "Protomate"
+    text = "protomate"
     ascii_banner = figlet_format(text, font="standard")
     cprint(ascii_banner, "cyan", attrs=["bold"])
 

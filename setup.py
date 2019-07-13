@@ -11,13 +11,13 @@ from shutil import rmtree
 from setuptools import find_packages, setup, Command
 
 # Package meta-data.
-NAME = "Protomate"
+NAME = "protomate"
 DESCRIPTION = "A CLI tool for creating new github project"
 URL = "https://github.com/rednafi/protomate"
 EMAIL = "redowan.nafi@gmail.com"
 AUTHOR = "Redowan"
 REQUIRES_PYTHON = ">=3.6.0"
-VERSION = "0.2.4"
+VERSION = "0.2.7"
 
 # What packages are required for this module to be executed?
 REQUIRED = [
@@ -98,9 +98,9 @@ setup(
     author_email=EMAIL,
     python_requires=REQUIRES_PYTHON,
     url=URL,
-    packages=find_packages(),
-    scripts=["protomate/script.py", "protomate/languages.py"],
-    entry_points={"console_scripts": ["protomate = protomate.script:main"]},
+    # packages=find_packages(),
+    scripts=["script.py", "languages.py"],
+    entry_points={"console_scripts": ["protomate = script:main"]},
     install_requires=REQUIRED,
     include_package_data=True,
     license="MIT",
