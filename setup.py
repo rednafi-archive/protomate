@@ -8,7 +8,7 @@ import io
 import os
 import sys
 from shutil import rmtree
-from setuptools import find_packages, find_namespace_packages, setup, Command
+from setuptools import find_packages, setup, Command
 
 # Package meta-data.
 NAME = "Protomate"
@@ -17,7 +17,7 @@ URL = "https://github.com/rednafi/protomate"
 EMAIL = "redowan.nafi@gmail.com"
 AUTHOR = "Redowan"
 REQUIRES_PYTHON = ">=3.6.0"
-VERSION = "0.2.3"
+VERSION = "0.2.4"
 
 # What packages are required for this module to be executed?
 REQUIRED = [
