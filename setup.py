@@ -8,7 +8,7 @@ import io
 import os
 import sys
 from shutil import rmtree
-from setuptools import find_packages, setup, Command
+from setuptools import find_packages, find_namespace_packages, setup, Command
 
 # Package meta-data.
 NAME = "Protomate"
@@ -17,7 +17,7 @@ URL = "https://github.com/rednafi/protomate"
 EMAIL = "redowan.nafi@gmail.com"
 AUTHOR = "Redowan"
 REQUIRES_PYTHON = ">=3.6.0"
-VERSION = "0.1.8"
+VERSION = "0.2.3"
 
 # What packages are required for this module to be executed?
 REQUIRED = [
@@ -98,8 +98,8 @@ setup(
     author_email=EMAIL,
     python_requires=REQUIRES_PYTHON,
     url=URL,
-    # scripts=["protomate.py", "languages.py"],
-    packages=find_packages(exclude=["tests", "*.tests", "*.tests.*", "tests.*"]),
+    packages=find_packages(),
+    scripts=["protomate/script.py", "protomate/languages.py"],
     entry_points={"console_scripts": ["protomate = protomate.script:main"]},
     install_requires=REQUIRED,
     include_package_data=True,
