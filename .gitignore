@@ -1,5 +1,5 @@
 __pycache__/
 venv/
 dist/
-Protomate.egg-info/
+protomate.egg-info/
 .vscode/
