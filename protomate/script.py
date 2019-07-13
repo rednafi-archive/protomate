@@ -11,8 +11,7 @@ from loguru import logger
 from pyfiglet import figlet_format
 from PyInquirer import Token, print_json, prompt, style_from_dict
 from termcolor import cprint
-
-import protomate.languages as languages
+import languages
 
 colorama.init(strip=not sys.stdout.isatty())
 
