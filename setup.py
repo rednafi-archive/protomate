@@ -17,17 +17,17 @@ URL = "https://github.com/rednafi/protomate"
 EMAIL = "redowan.nafi@gmail.com"
 AUTHOR = "Redowan"
 REQUIRES_PYTHON = ">=3.6.0"
-VERSION = "0.2.7"
+VERSION = "0.2.8"
 
 # What packages are required for this module to be executed?
 REQUIRED = [
-    "loguru==0.3.0",
+    "loguru==0.3.1",
     "pyfiglet==0.8.post1",
     "colorama==0.4.1",
     "termcolor==1.1.0",
-    "PyInquirer==1.0.3",
+    "questionary==1.1.1",
     "PyGithub==1.43.7",
-    "prompt_toolkit==1.0.14",
+    "prompt_toolkit==2.0.9",
 ]
 
 here = os.path.abspath(os.path.dirname(__file__))
