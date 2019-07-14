@@ -55,3 +55,7 @@ This should:
 - Create a new local and remote git repository
 
 - Connect them and open vs code for you to start coding immediately
+
+## Contributor
+* Redowan Delowar (Author & primary maintainer) [[rednafi]](https://github.com/rednafi) 
+* Manash Kumar Mandal [[manashmndl]](https://github.com/manashmndl)
