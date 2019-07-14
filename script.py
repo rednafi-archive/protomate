@@ -6,11 +6,13 @@ import sys
 from pprint import pprint
 
 import colorama
+import questionary
 from github import Github
 from loguru import logger
+from prompt_toolkit.styles import Style
 from pyfiglet import figlet_format
-from PyInquirer import Token, print_json, prompt, style_from_dict
 from termcolor import cprint
+
 import languages
 
 colorama.init(strip=not sys.stdout.isatty())
@@ -35,36 +37,36 @@ def cli():
     ascii_banner = figlet_format(text, font="standard")
     cprint(ascii_banner, "cyan", attrs=["bold"])
 
-    style = style_from_dict(
-        {
-            Token.QuestionMark: "#E91E63 bold",
-            Token.Answer: "#fac731 bold",
-            Token.Instruction: "#ef8a62",
-            Token.Separator: "#cc5454",
-            Token.Selected: "#7fc97f",
-            Token.Pointer: "#fdc086",
-            Token.Question: "",
-        }
+    style = Style(
+        [
+            ("qmark", "fg:#E91E63 bold"),
+            ("answer", "fg:#fac731 bold"),
+            ("instruction", "fg:#ef8a62"),
+            ("separator", "fg:#cc5454"),
+            ("selected", "fg:#7fc97f"),
+            ("pointer", "fg:#fdc086"),
+            ("question", ""),
+        ]
     )
 
     questions = [
-        {"type": "input", "name": "github_username", "message": "GitHub Username:"},
+        {"type": "text", "name": "github_username", "message": "GitHub Username:"},
         {"type": "password", "name": "github_password", "message": "GitHub Password:"},
-        {"type": "input", "name": "repo_name", "message": "Repository Name:"},
+        {"type": "text", "name": "repo_name", "message": "Repository Name:"},
         {
-            "type": "list",
+            "type": "select",
             "name": "repo_type",
             "message": "Repository Type:",
             "choices": ["Public", "Private"],
         },
         {
-            "type": "input",
+            "type": "text",
             "name": "gitignore",
             "message": "(Optional) Please enter language name to create .gitignore file,\n press enter if you don't want to:",
         },
     ]
 
-    answers = prompt(questions, style=style)
+    answers = questionary.prompt(questions, style=style)
 
     github_username = answers["github_username"]
     github_password = answers["github_password"]
