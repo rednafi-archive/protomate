@@ -13,7 +13,7 @@ from prompt_toolkit.styles import Style
 from pyfiglet import figlet_format
 from termcolor import cprint
 
-import protomate.languages
+import protomate.languages as languages
 
 colorama.init(strip=not sys.stdout.isatty())
 
