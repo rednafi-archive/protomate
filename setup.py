@@ -17,7 +17,7 @@ URL = "https://github.com/rednafi/protomate"
 EMAIL = "redowan.nafi@gmail.com"
 AUTHOR = "Redowan"
 REQUIRES_PYTHON = ">=3.6.0"
-VERSION = "0.2.8"
+VERSION = "0.3.0"
 
 # What packages are required for this module to be executed?
 REQUIRED = [
@@ -98,9 +98,8 @@ setup(
     author_email=EMAIL,
     python_requires=REQUIRES_PYTHON,
     url=URL,
-    # packages=find_packages(),
-    scripts=["script.py", "languages.py"],
-    entry_points={"console_scripts": ["protomate = script:main"]},
+    packages=['protomate'],
+    entry_points={"console_scripts": ["protomate = protomate.script:main"]},
     install_requires=REQUIRED,
     include_package_data=True,
     license="MIT",
