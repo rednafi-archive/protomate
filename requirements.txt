@@ -2,7 +2,7 @@ colorama==0.4.1
 termcolor==1.1.0
 pyfiglet==0.8.post1
 setuptools==41.0.1
-prompt_toolkit==2.0.7
+prompt_toolkit==2.0.9
 PyGithub==1.43.7
 loguru==0.3.1
 questionary==1.1.1
