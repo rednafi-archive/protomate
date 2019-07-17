@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 # Note: To use the 'upload' functionality of this file, you must:
 #   $ pipenv install twine --dev
-
 import io
 import os
 import sys
 from shutil import rmtree
-from setuptools import find_packages, setup, Command
+
+from setuptools import Command
+from setuptools import find_packages
+from setuptools import setup
 
 # Package meta-data.
 NAME = "protomate"
@@ -59,7 +60,7 @@ class UploadCommand(Command):
     @staticmethod
     def status(s):
         """Prints things in bold."""
-        print("\033[1m{0}\033[0m".format(s))
+        print("\033[1m{}\033[0m".format(s))
 
     def initialize_options(self):
         pass
@@ -75,13 +76,13 @@ class UploadCommand(Command):
             pass
 
         self.status("Building Source and Wheel (universal) distribution...")
-        os.system("{0} setup.py sdist bdist_wheel --universal".format(sys.executable))
+        os.system("{} setup.py sdist bdist_wheel --universal".format(sys.executable))
 
         self.status("Uploading the package to PyPI via Twine...")
         os.system("twine upload dist/*")
 
         self.status("Pushing git tags...")
-        os.system("git tag v{0}".format(about["__version__"]))
+        os.system("git tag v{}".format(about["__version__"]))
         os.system("git push --tags")
 
         sys.exit()
@@ -98,7 +99,7 @@ setup(
     author_email=EMAIL,
     python_requires=REQUIRES_PYTHON,
     url=URL,
-    packages=['protomate'],
+    packages=["protomate"],
     entry_points={"console_scripts": ["protomate = protomate.script:main"]},
     install_requires=REQUIRED,
     include_package_data=True,
