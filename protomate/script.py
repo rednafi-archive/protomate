@@ -41,9 +41,13 @@ class Protomate(object):
         Returns
         -------
         github_username : str
+            Github user name where the repository will be created.
         github_password : str
+            Github password.
         repo_name : str
+            Desired repository name.
         repo_type : str
+            Whether the repository will be public or private.
         gitigore : str
             Question regarding whether to add a gitignore file or not.
             If yes then asks for the name of the gitignore language.
