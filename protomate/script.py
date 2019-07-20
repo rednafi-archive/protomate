@@ -34,6 +34,14 @@ class Protomate(object):
     def __init__(self):
         pass
 
+    def draw_ascii_banner(self):
+        """
+        Draw Protomate banner !!!
+        """
+        self.text = "Protomate"
+        self.ascii_banner = figlet_format(self.text, font="standard")
+        cprint(self.ascii_banner, "cyan", attrs=["bold"])
+
     def cli(self):
         """CLI function that shows a list of questions regarding
         github credentials and other functionalities.
@@ -54,15 +62,11 @@ class Protomate(object):
 
         """
 
-        self.text = "protomate"
-        self.ascii_banner = figlet_format(self.text, font="standard")
-        cprint(self.ascii_banner, "cyan", attrs=["bold"])
-
         self.style = Style(
             [
-                ("qmark", "fg:#E91E63 bold"),
-                ("answer", "fg:#fac731 bold"),
-                ("instruction", "fg:#ef8a62"),
+                ("qmark", "fg:#E91E63"),
+                ("answer", "fg:#fac731"),
+                ("instruction", "fg:#f06292"),
                 ("separator", "fg:#cc5454"),
                 ("selected", "fg:#7fc97f"),
                 ("pointer", "fg:#fdc086"),
@@ -87,10 +91,10 @@ class Protomate(object):
             {
                 "type": "text",
                 "name": "gitignore",
-                "message": """(Optional)Please enter language name
-                            to create.gitignore file, \n press
-                            enter if you don't want to:
-                            """,
+                "message": """Gitignore(Optional):
+                Please enter the desired language name to create
+                .gitignore file, press enter if you don't want to:
+                """,
             },
         ]
 
@@ -257,6 +261,7 @@ def main():
     """
 
     protomate = Protomate()
+    protomate.draw_ascii_banner()
     github_username, github_password, repo_name, repo_type, gitignore = protomate.cli()
 
     print("")
