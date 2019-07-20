@@ -229,7 +229,7 @@ class Protomate(object):
             sys.exit("Local and remote repository cannot be connected")
 
 
-def main(Protomate):
+def main():
 
     protomate = Protomate()
 
@@ -248,4 +248,4 @@ def main(Protomate):
 
 
 if __name__ == "__main__":
-    main(Protomate)
+    main()
