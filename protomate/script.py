@@ -64,13 +64,13 @@ class Protomate(object):
 
         self.style = Style(
             [
-                ("qmark", "fg:#E91E63"),
+                ("qmark", "fg:#e91e63 bold"),
                 ("answer", "fg:#fac731"),
                 ("instruction", "fg:#f06292"),
                 ("separator", "fg:#cc5454"),
                 ("selected", "fg:#7fc97f"),
                 ("pointer", "fg:#fdc086"),
-                ("question", ""),
+                ("question", "fg:#d3d7cF"),
             ]
         )
 
