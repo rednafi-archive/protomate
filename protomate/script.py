@@ -264,7 +264,6 @@ def main():
     protomate.draw_ascii_banner()
     github_username, github_password, repo_name, repo_type, gitignore = protomate.cli()
 
-    print("")
     print("Thanks for all your information, hang tight while we are at it...")
 
     g, user = protomate.authentication(github_username, github_password)
