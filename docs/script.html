@@ -58,6 +58,14 @@ class Protomate(object):
     def __init__(self):
         pass
 
+    def draw_ascii_banner(self):
+        &#34;&#34;&#34;
+        Draw Protomate banner !!!
+        &#34;&#34;&#34;
+        self.text = &#34;Protomate&#34;
+        self.ascii_banner = figlet_format(self.text, font=&#34;standard&#34;)
+        cprint(self.ascii_banner, &#34;cyan&#34;, attrs=[&#34;bold&#34;])
+
     def cli(self):
         &#34;&#34;&#34;CLI function that shows a list of questions regarding
         github credentials and other functionalities.
@@ -78,19 +86,15 @@ class Protomate(object):
 
         &#34;&#34;&#34;
 
-        self.text = &#34;protomate&#34;
-        self.ascii_banner = figlet_format(self.text, font=&#34;standard&#34;)
-        cprint(self.ascii_banner, &#34;cyan&#34;, attrs=[&#34;bold&#34;])
-
         self.style = Style(
             [
-                (&#34;qmark&#34;, &#34;fg:#E91E63 bold&#34;),
-                (&#34;answer&#34;, &#34;fg:#fac731 bold&#34;),
-                (&#34;instruction&#34;, &#34;fg:#ef8a62&#34;),
+                (&#34;qmark&#34;, &#34;fg:#e91e63 bold&#34;),
+                (&#34;answer&#34;, &#34;fg:#fac731&#34;),
+                (&#34;instruction&#34;, &#34;fg:#f06292&#34;),
                 (&#34;separator&#34;, &#34;fg:#cc5454&#34;),
                 (&#34;selected&#34;, &#34;fg:#7fc97f&#34;),
                 (&#34;pointer&#34;, &#34;fg:#fdc086&#34;),
-                (&#34;question&#34;, &#34;&#34;),
+                (&#34;question&#34;, &#34;fg:#d3d7cF&#34;),
             ]
         )
 
@@ -111,10 +115,10 @@ class Protomate(object):
             {
                 &#34;type&#34;: &#34;text&#34;,
                 &#34;name&#34;: &#34;gitignore&#34;,
-                &#34;message&#34;: &#34;&#34;&#34;(Optional)Please enter language name
-                            to create.gitignore file, \n press
-                            enter if you don&#39;t want to:
-                            &#34;&#34;&#34;,
+                &#34;message&#34;: &#34;&#34;&#34;Gitignore(Optional):
+                Please enter the desired language name to create
+                .gitignore file, press enter if you don&#39;t want to:
+                &#34;&#34;&#34;,
             },
         ]
 
@@ -281,9 +285,9 @@ def main():
     &#34;&#34;&#34;
 
     protomate = Protomate()
+    protomate.draw_ascii_banner()
     github_username, github_password, repo_name, repo_type, gitignore = protomate.cli()
 
-    print(&#34;&#34;)
     print(&#34;Thanks for all your information, hang tight while we are at it...&#34;)
 
     g, user = protomate.authentication(github_username, github_password)
@@ -315,9 +319,9 @@ if __name__ == &#34;__main__&#34;:
     &#34;&#34;&#34;
 
     protomate = Protomate()
+    protomate.draw_ascii_banner()
     github_username, github_password, repo_name, repo_type, gitignore = protomate.cli()
 
-    print(&#34;&#34;)
     print(&#34;Thanks for all your information, hang tight while we are at it...&#34;)
 
     g, user = protomate.authentication(github_username, github_password)
@@ -342,6 +346,14 @@ if __name__ == &#34;__main__&#34;:
     def __init__(self):
         pass
 
+    def draw_ascii_banner(self):
+        &#34;&#34;&#34;
+        Draw Protomate banner !!!
+        &#34;&#34;&#34;
+        self.text = &#34;Protomate&#34;
+        self.ascii_banner = figlet_format(self.text, font=&#34;standard&#34;)
+        cprint(self.ascii_banner, &#34;cyan&#34;, attrs=[&#34;bold&#34;])
+
     def cli(self):
         &#34;&#34;&#34;CLI function that shows a list of questions regarding
         github credentials and other functionalities.
@@ -362,19 +374,15 @@ if __name__ == &#34;__main__&#34;:
 
         &#34;&#34;&#34;
 
-        self.text = &#34;protomate&#34;
-        self.ascii_banner = figlet_format(self.text, font=&#34;standard&#34;)
-        cprint(self.ascii_banner, &#34;cyan&#34;, attrs=[&#34;bold&#34;])
-
         self.style = Style(
             [
-                (&#34;qmark&#34;, &#34;fg:#E91E63 bold&#34;),
-                (&#34;answer&#34;, &#34;fg:#fac731 bold&#34;),
-                (&#34;instruction&#34;, &#34;fg:#ef8a62&#34;),
+                (&#34;qmark&#34;, &#34;fg:#e91e63 bold&#34;),
+                (&#34;answer&#34;, &#34;fg:#fac731&#34;),
+                (&#34;instruction&#34;, &#34;fg:#f06292&#34;),
                 (&#34;separator&#34;, &#34;fg:#cc5454&#34;),
                 (&#34;selected&#34;, &#34;fg:#7fc97f&#34;),
                 (&#34;pointer&#34;, &#34;fg:#fdc086&#34;),
-                (&#34;question&#34;, &#34;&#34;),
+                (&#34;question&#34;, &#34;fg:#d3d7cF&#34;),
             ]
         )
 
@@ -395,10 +403,10 @@ if __name__ == &#34;__main__&#34;:
             {
                 &#34;type&#34;: &#34;text&#34;,
                 &#34;name&#34;: &#34;gitignore&#34;,
-                &#34;message&#34;: &#34;&#34;&#34;(Optional)Please enter language name
-                            to create.gitignore file, \n press
-                            enter if you don&#39;t want to:
-                            &#34;&#34;&#34;,
+                &#34;message&#34;: &#34;&#34;&#34;Gitignore(Optional):
+                Please enter the desired language name to create
+                .gitignore file, press enter if you don&#39;t want to:
+                &#34;&#34;&#34;,
             },
         ]
 
@@ -655,19 +663,15 @@ If yes then asks for the name of the gitignore language.</dd>
 
     &#34;&#34;&#34;
 
-    self.text = &#34;protomate&#34;
-    self.ascii_banner = figlet_format(self.text, font=&#34;standard&#34;)
-    cprint(self.ascii_banner, &#34;cyan&#34;, attrs=[&#34;bold&#34;])
-
     self.style = Style(
         [
-            (&#34;qmark&#34;, &#34;fg:#E91E63 bold&#34;),
-            (&#34;answer&#34;, &#34;fg:#fac731 bold&#34;),
-            (&#34;instruction&#34;, &#34;fg:#ef8a62&#34;),
+            (&#34;qmark&#34;, &#34;fg:#e91e63 bold&#34;),
+            (&#34;answer&#34;, &#34;fg:#fac731&#34;),
+            (&#34;instruction&#34;, &#34;fg:#f06292&#34;),
             (&#34;separator&#34;, &#34;fg:#cc5454&#34;),
             (&#34;selected&#34;, &#34;fg:#7fc97f&#34;),
             (&#34;pointer&#34;, &#34;fg:#fdc086&#34;),
-            (&#34;question&#34;, &#34;&#34;),
+            (&#34;question&#34;, &#34;fg:#d3d7cF&#34;),
         ]
     )
 
@@ -688,10 +692,10 @@ If yes then asks for the name of the gitignore language.</dd>
         {
             &#34;type&#34;: &#34;text&#34;,
             &#34;name&#34;: &#34;gitignore&#34;,
-            &#34;message&#34;: &#34;&#34;&#34;(Optional)Please enter language name
-                        to create.gitignore file, \n press
-                        enter if you don&#39;t want to:
-                        &#34;&#34;&#34;,
+            &#34;message&#34;: &#34;&#34;&#34;Gitignore(Optional):
+            Please enter the desired language name to create
+            .gitignore file, press enter if you don&#39;t want to:
+            &#34;&#34;&#34;,
         },
     ]
 
@@ -872,6 +876,22 @@ If yes then asks for the name of the gitignore language.</dd>
         )</code></pre>
 </details>
 </dd>
+<dt id="protomate.script.Protomate.draw_ascii_banner"><code class="name flex">
+<span>def <span class="ident">draw_ascii_banner</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Draw Protomate banner !!!</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def draw_ascii_banner(self):
+    &#34;&#34;&#34;
+    Draw Protomate banner !!!
+    &#34;&#34;&#34;
+    self.text = &#34;Protomate&#34;
+    self.ascii_banner = figlet_format(self.text, font=&#34;standard&#34;)
+    cprint(self.ascii_banner, &#34;cyan&#34;, attrs=[&#34;bold&#34;])</code></pre>
+</details>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -903,6 +923,7 @@ If yes then asks for the name of the gitignore language.</dd>
 <li><code><a title="protomate.script.Protomate.connect_local_to_remote" href="#protomate.script.Protomate.connect_local_to_remote">connect_local_to_remote</a></code></li>
 <li><code><a title="protomate.script.Protomate.create_local_repo" href="#protomate.script.Protomate.create_local_repo">create_local_repo</a></code></li>
 <li><code><a title="protomate.script.Protomate.create_remote_repo" href="#protomate.script.Protomate.create_remote_repo">create_remote_repo</a></code></li>
+<li><code><a title="protomate.script.Protomate.draw_ascii_banner" href="#protomate.script.Protomate.draw_ascii_banner">draw_ascii_banner</a></code></li>
 </ul>
 </li>
 </ul>
