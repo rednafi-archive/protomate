@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.6.3" />
-<title>script API documentation</title>
+<title>protomate.script API documentation</title>
 <meta name="description" content="" />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
@@ -17,7 +17,7 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>script</code></h1>
+<h1 class="title">Module <code>protomate.script</code></h1>
 </header>
 <section id="section-intro">
 <details class="source">
@@ -186,6 +186,7 @@ class Protomate(object):
         Parameters
         ----------
         g : github.MainClass.Github
+            Github object from PyGithub package.
         github_username : str
             Github user name where the repository will be created.
         repo_name : str
@@ -302,7 +303,7 @@ if __name__ == &#34;__main__&#34;:
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt id="script.main"><code class="name flex">
+<dt id="protomate.script.main"><code class="name flex">
 <span>def <span class="ident">main</span></span>(<span>)</span>
 </code></dt>
 <dd>
@@ -330,7 +331,7 @@ if __name__ == &#34;__main__&#34;:
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt id="script.Protomate"><code class="flex name class">
+<dt id="protomate.script.Protomate"><code class="flex name class">
 <span>class <span class="ident">Protomate</span></span>
 </code></dt>
 <dd>
@@ -469,6 +470,7 @@ if __name__ == &#34;__main__&#34;:
         Parameters
         ----------
         g : github.MainClass.Github
+            Github object from PyGithub package.
         github_username : str
             Github user name where the repository will be created.
         repo_name : str
@@ -559,7 +561,7 @@ if __name__ == &#34;__main__&#34;:
 </details>
 <h3>Methods</h3>
 <dl>
-<dt id="script.Protomate.authentication"><code class="name flex">
+<dt id="protomate.script.Protomate.authentication"><code class="name flex">
 <span>def <span class="ident">authentication</span></span>(<span>self, github_username, github_password)</span>
 </code></dt>
 <dd>
@@ -611,7 +613,7 @@ if __name__ == &#34;__main__&#34;:
     return (self.g, self.user)</code></pre>
 </details>
 </dd>
-<dt id="script.Protomate.cli"><code class="name flex">
+<dt id="protomate.script.Protomate.cli"><code class="name flex">
 <span>def <span class="ident">cli</span></span>(<span>self)</span>
 </code></dt>
 <dd>
@@ -710,7 +712,7 @@ If yes then asks for the name of the gitignore language.</dd>
     )</code></pre>
 </details>
 </dd>
-<dt id="script.Protomate.connect_local_to_remote"><code class="name flex">
+<dt id="protomate.script.Protomate.connect_local_to_remote"><code class="name flex">
 <span>def <span class="ident">connect_local_to_remote</span></span>(<span>self, repo_name, github_username, gitignore)</span>
 </code></dt>
 <dd>
@@ -791,7 +793,7 @@ If yes then asks for the name of the gitignore language.</dd>
         sys.exit(&#34;Local and remote repository cannot be connected&#34;)</code></pre>
 </details>
 </dd>
-<dt id="script.Protomate.create_local_repo"><code class="name flex">
+<dt id="protomate.script.Protomate.create_local_repo"><code class="name flex">
 <span>def <span class="ident">create_local_repo</span></span>(<span>self, repo_name)</span>
 </code></dt>
 <dd>
@@ -820,7 +822,7 @@ If yes then asks for the name of the gitignore language.</dd>
         sys.exit(f&#34;LocalExistsError: Local repository &#39;{repo_name}&#39; already exists&#34;)</code></pre>
 </details>
 </dd>
-<dt id="script.Protomate.create_remote_repo"><code class="name flex">
+<dt id="protomate.script.Protomate.create_remote_repo"><code class="name flex">
 <span>def <span class="ident">create_remote_repo</span></span>(<span>self, g, github_username, repo_name, repo_type)</span>
 </code></dt>
 <dd>
@@ -828,7 +830,7 @@ If yes then asks for the name of the gitignore language.</dd>
 <h2 id="parameters">Parameters</h2>
 <dl>
 <dt><strong><code>g</code></strong> :&ensp;<code>github.MainClass.Github</code></dt>
-<dd>&nbsp;</dd>
+<dd>Github object from PyGithub package.</dd>
 <dt><strong><code>github_username</code></strong> :&ensp;<code>str</code></dt>
 <dd>Github user name where the repository will be created.</dd>
 <dt><strong><code>repo_name</code></strong> :&ensp;<code>str</code></dt>
@@ -844,6 +846,7 @@ If yes then asks for the name of the gitignore language.</dd>
     Parameters
     ----------
     g : github.MainClass.Github
+        Github object from PyGithub package.
     github_username : str
         Github user name where the repository will be created.
     repo_name : str
@@ -880,21 +883,26 @@ If yes then asks for the name of the gitignore language.</dd>
 <ul></ul>
 </div>
 <ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="protomate" href="index.html">protomate</a></code></li>
+</ul>
+</li>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
-<li><code><a title="script.main" href="#script.main">main</a></code></li>
+<li><code><a title="protomate.script.main" href="#protomate.script.main">main</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
-<h4><code><a title="script.Protomate" href="#script.Protomate">Protomate</a></code></h4>
+<h4><code><a title="protomate.script.Protomate" href="#protomate.script.Protomate">Protomate</a></code></h4>
 <ul class="">
-<li><code><a title="script.Protomate.authentication" href="#script.Protomate.authentication">authentication</a></code></li>
-<li><code><a title="script.Protomate.cli" href="#script.Protomate.cli">cli</a></code></li>
-<li><code><a title="script.Protomate.connect_local_to_remote" href="#script.Protomate.connect_local_to_remote">connect_local_to_remote</a></code></li>
-<li><code><a title="script.Protomate.create_local_repo" href="#script.Protomate.create_local_repo">create_local_repo</a></code></li>
-<li><code><a title="script.Protomate.create_remote_repo" href="#script.Protomate.create_remote_repo">create_remote_repo</a></code></li>
+<li><code><a title="protomate.script.Protomate.authentication" href="#protomate.script.Protomate.authentication">authentication</a></code></li>
+<li><code><a title="protomate.script.Protomate.cli" href="#protomate.script.Protomate.cli">cli</a></code></li>
+<li><code><a title="protomate.script.Protomate.connect_local_to_remote" href="#protomate.script.Protomate.connect_local_to_remote">connect_local_to_remote</a></code></li>
+<li><code><a title="protomate.script.Protomate.create_local_repo" href="#protomate.script.Protomate.create_local_repo">create_local_repo</a></code></li>
+<li><code><a title="protomate.script.Protomate.create_remote_repo" href="#protomate.script.Protomate.create_remote_repo">create_remote_repo</a></code></li>
 </ul>
 </li>
 </ul>
