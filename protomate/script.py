@@ -35,7 +35,8 @@ class Protomate(object):
         pass
 
     def cli(self):
-        """CLI function that shows a list of questions regarding github credentials and other functionalities.
+        """CLI function that shows a list of questions regarding
+        github credentials and other functionalities.
 
         Returns
         -------
@@ -44,7 +45,8 @@ class Protomate(object):
         repo_name : str
         repo_type : str
         gitigore : str
-            Question regarding whether to add a gitignore file or not. If yes, then asks for the name of the gitignore language.
+            Question regarding whether to add a gitignore file or not.
+            If yes then asks for the name of the gitignore language.
 
         """
 
@@ -81,7 +83,10 @@ class Protomate(object):
             {
                 "type": "text",
                 "name": "gitignore",
-                "message": "(Optional) Please enter language name to create .gitignore file,\n press enter if you don't want to:",
+                "message": """(Optional)Please enter language name
+                            to create.gitignore file, \n press
+                            enter if you don't want to:
+                            """,
             },
         ]
 
@@ -194,9 +199,11 @@ class Protomate(object):
         self.cmd_gitignore = f"""
                     cd {repo_name}
                     git init
-                    git remote add origin git@github.com:{github_username}/{repo_name}.git
+                    git remote add origin git@github.com:
+                    {github_username}/{repo_name}.git
                     touch README.md
-                    curl -X GET https://www.gitignore.io/api/{gitignore} > .gitignore
+                    curl -X GET https://www.gitignore.io/api/{gitignore} >
+                    .gitignore
                     git add .
                     git commit -m "Initial commit"
                     git push -u origin master
