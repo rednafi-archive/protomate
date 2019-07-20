@@ -116,12 +116,16 @@ class Protomate(object):
         Parameters
         ----------
         github_username : str
+            Github user name where the repository will be created.
         github_password : str
+            Github password.
 
         Returns
         -------
         g : github.MainClass.Github
+            Github object from PyGithub package.
         user : github.AuthenticatedUser.AuthenticatedUser
+            Authenticated user object from PyGithub package.
         """
 
         self.g = Github(github_username, github_password)
@@ -142,7 +146,7 @@ class Protomate(object):
         Parameters
         ----------
         repo_name : str
-            Takes in the name of the local directory
+            Desired repository name.
         """
 
         try:
@@ -158,9 +162,14 @@ class Protomate(object):
         Parameters
         ----------
         g : github.MainClass.Github
+            Github object from PyGithub package.
         github_username : str
+            Github user name where the repository will be created.
         repo_name : str
+            Desired repository name.
         repo_type : str
+            Whether the repository will be public or private.
+
         """
 
         self.user = g.get_user()
@@ -184,8 +193,11 @@ class Protomate(object):
         Parameters
         ----------
         repo_name : str
+            Desired repository name.
         github_username : str
+            Github user name where the repository will be created.
         gitignore : str
+            Empty string or gitignore language.
 
         """
 
@@ -241,6 +253,8 @@ class Protomate(object):
 
 
 def main():
+    """Main function
+    """
 
     protomate = Protomate()
     github_username, github_password, repo_name, repo_type, gitignore = protomate.cli()
