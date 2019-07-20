@@ -232,18 +232,14 @@ class Protomate(object):
 def main():
 
     protomate = Protomate()
-
     github_username, github_password, repo_name, repo_type, gitignore = protomate.cli()
 
     print("")
     print("Thanks for all your information, hang tight while we are at it...")
 
     g, user = protomate.authentication(github_username, github_password)
-
     protomate.create_local_repo(repo_name)
-
     protomate.create_remote_repo(g, github_username, repo_name, repo_type)
-
     protomate.connect_local_to_remote(repo_name, github_username, gitignore)
 
 
