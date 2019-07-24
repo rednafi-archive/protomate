@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "protomate"
-version = "0.4.7"
+version = "0.4.8"
 description = "Python built CLI tool for automated github project initialization."
 authors = ["Redowan Delowar"]
 license = "MIT"
