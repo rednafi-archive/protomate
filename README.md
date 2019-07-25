@@ -17,10 +17,6 @@ This will perform the following tasks:
 
 ## Installation
 
-Install `curl` via the following command:
-
-```
-sudo apt-get install curl
 ```
 
 Install `protomate` via:
