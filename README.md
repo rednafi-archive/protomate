@@ -18,13 +18,10 @@ This will perform the following tasks:
 ## Installation
 
 ```
-
 Install `protomate` via:
-
 ```
 pip3 install protomate==0.4.8
 ```
-
 ## Run the App
 
 To create a new project in your designated project folder, first `cd` to your desired location:
