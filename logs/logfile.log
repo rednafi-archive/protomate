@@ -136,3 +136,42 @@ Traceback (most recent call last):
   File "/home/redowan/.local/lib/python3.7/site-packages/github/Requester.py", line 286, in __check
     raise self.__createException(status, responseHeaders, output)
 github.GithubException.BadCredentialsException: 401 {'message': 'Bad credentials', 'documentation_url': 'https://developer.github.com/v3'}
+-------------||time:2019-07-24T17:46:35.455657+0600||level:ERROR||-------------
+Command '
+                    cd reddr
+                    git init
+                    git remote add origin git@github.com:
+                    rednafi/reddr.git
+                    touch README.md
+                    curl -X GET https://www.gitignore.io/api/python >
+                    .gitignore
+                    git add .
+                    git commit -m "Initial commit"
+                    git push -u origin master
+                    code .
+                    ' returned non-zero exit status 2.
+
+Traceback (most recent call last):
+  File "/media/redowan/New Volume/protomate/protomate/script.py", line 276, in <module>
+    main()
+  File "/media/redowan/New Volume/protomate/protomate/script.py", line 272, in main
+    protomate.connect_local_to_remote(repo_name, github_username, gitignore)
+> File "/media/redowan/New Volume/protomate/protomate/script.py", line 236, in connect_local_to_remote
+    subprocess.check_output(self.cmd_gitignore, shell=True)
+  File "/usr/lib/python3.6/subprocess.py", line 356, in check_output
+    **kwargs).stdout
+  File "/usr/lib/python3.6/subprocess.py", line 438, in run
+    output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '
+                    cd reddr
+                    git init
+                    git remote add origin git@github.com:
+                    rednafi/reddr.git
+                    touch README.md
+                    curl -X GET https://www.gitignore.io/api/python >
+                    .gitignore
+                    git add .
+                    git commit -m "Initial commit"
+                    git push -u origin master
+                    code .
+                    ' returned non-zero exit status 2.

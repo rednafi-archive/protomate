@@ -206,29 +206,27 @@ class Protomate(object):
         """
 
         self.cmd = f"""
-                cd {repo_name}
-                git init
-                git remote add origin git@github.com:{github_username}/{repo_name}.git
-                touch README.md
-                git add .
-                git commit -m "Initial commit"
-                git push -u origin master
-                code .
-                    """
+            cd {repo_name}
+            git init
+            git remote add origin git@github.com:{github_username}/{repo_name}.git
+            touch README.md
+            git add .
+            git commit -m "Initial commit"
+            git push -u origin master
+            code .
+                """
 
         self.cmd_gitignore = f"""
-                    cd {repo_name}
-                    git init
-                    git remote add origin git@github.com:
-                    {github_username}/{repo_name}.git
-                    touch README.md
-                    curl -X GET https://www.gitignore.io/api/{gitignore} >
-                    .gitignore
-                    git add .
-                    git commit -m "Initial commit"
-                    git push -u origin master
-                    code .
-                    """
+            cd {repo_name}
+            git init
+            git remote add origin git@github.com:{github_username}/{repo_name}.git
+            touch README.md
+            curl -X GET https://www.gitignore.io/api/{gitignore} >.gitignore
+            git add .
+            git commit -m "Initial commit"
+            git push -u origin master
+            code .
+            """
 
         try:
             if gitignore != "" and gitignore.lower() in languages.PROGRAMMING_LANGUAGES:

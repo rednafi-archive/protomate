@@ -2,7 +2,7 @@
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/rednafi/protomate/blob/master/LICENSE) ![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/python/black)
 
-![Alt Text](https://github.com/rednafi/protomate/blob/master/demo/protomate.gif)
+![Alt Text](https://github.com/rednafi/protomate/blob/master/demo/demo.svg)
 
 This will perform the following tasks:
 
@@ -17,16 +17,10 @@ This will perform the following tasks:
 
 ## Installation
 
-Install `curl` via the following command:
-
-```
-sudo apt-get install curl
-```
-
 Install `protomate` via:
 
 ```
-pip3 install protomate==0.4.6
+pip3 install protomate==0.4.8
 ```
 
 ## Run the App

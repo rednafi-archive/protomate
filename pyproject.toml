@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "protomate"
-version = "0.4.6"
+version = "0.4.8"
 description = "Python built CLI tool for automated github project initialization."
 authors = ["Redowan Delowar"]
 license = "MIT"
@@ -19,9 +19,9 @@ classifiers=[
     ]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.6"
 colorama= "0.4.1"
-loguru= "^0.3.1"
+loguru= "0.3.1"
 prompt_toolkit = "2.0.9"
 pyfiglet= "0.8.post1"
 PyGithub= "1.43.7"
