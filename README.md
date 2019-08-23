@@ -20,7 +20,7 @@ This will perform the following tasks:
 Install `protomate` via:
 
 ```
-pip3 install protomate==0.4.8
+pip3 install protomate==0.4.9
 ```
 
 ## Run the App

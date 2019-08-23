@@ -4,5 +4,7 @@ prompt_toolkit==2.0.9
 pyfiglet==0.8.post1
 PyGithub==1.43.8
 questionary==1.2.1
-setuptools==41.0.1
 termcolor==1.1.0
+
+# dev dependencies
+setuptools==1.43.7
