@@ -44,7 +44,7 @@ This should:
   - Github credentials
   - Repository name
   - Repository type (public/private)
-  - Language of `.gitignore` (python, javascript etc). See a list of all the supported [languages](https://github.com/rednafi/protomate/blob/master/languages.py).
+  - Language of `.gitignore` (python, javascript etc). See a list of all the supported [languages](https://github.com/rednafi/protomate/blob/master/protomate/languages.py).
 
 - Create a new local and remote git repository
 
