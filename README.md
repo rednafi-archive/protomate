@@ -34,7 +34,7 @@ $ cd project-location
 To initialize the CLI, type:
 
 ```
-protomate
+$ protomate
 ```
 
 This should:
