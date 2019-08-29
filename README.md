@@ -20,7 +20,7 @@ This will perform the following tasks:
 Install `protomate` via:
 
 ```
-pip3 install protomate==0.4.9
+$ pip3 install protomate==0.4.9
 ```
 
 ## Run the App
@@ -28,7 +28,7 @@ pip3 install protomate==0.4.9
 To create a new project in your designated project folder, first `cd` to your desired location:
 
 ```
-cd project-location
+$ cd project-location
 ```
 
 To initialize the CLI, type:
