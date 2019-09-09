@@ -2,7 +2,7 @@ from github import Github
 from loguru import logger
 import sys
 import os
-import protomate.languages as languages
+from languages import PROGRAMMING_LANGUAGES
 import subprocess
 
 
@@ -93,13 +93,11 @@ def connect_local_to_remote(repo_name, github_username, gitignore):
         """
 
     try:
-        if gitignore != "" and gitignore.lower() in languages.PROGRAMMING_LANGUAGES:
+        if gitignore != "" and gitignore.lower() in PROGRAMMING_LANGUAGES:
             cmd_gitignore
             subprocess.check_output(cmd_gitignore, shell=True)
 
-        elif (
-            gitignore != "" and gitignore.lower() not in languages.PROGRAMMING_LANGUAGES
-        ):
+        elif gitignore != "" and gitignore.lower() not in PROGRAMMING_LANGUAGES:
             print("Language not supported:\n Creating repository without .gitignore")
             cmd
             subprocess.check_output(cmd, shell=True)
