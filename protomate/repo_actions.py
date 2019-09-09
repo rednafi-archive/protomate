@@ -2,7 +2,7 @@ from github import Github
 from loguru import logger
 import sys
 import os
-from languages import PROGRAMMING_LANGUAGES
+from protomate.languages import PROGRAMMING_LANGUAGES
 import subprocess
 
 

@@ -1,7 +1,7 @@
 import questionary
 from prompt_toolkit.styles import Style
 import sys
-from repo_auths import is_pass_saved, save_pass, retrieve_pass
+from protomate.repo_auths import is_pass_saved, save_pass, retrieve_pass
 import art
 from sty import fg, rs
 from termcolor import cprint
