@@ -15,11 +15,11 @@ def draw_ascii_banner():
     Draw Protomate banner !!!
     """
     text = "ProtomatE"
-    ascii_banner = art.text2art(text, font="fire_font-s")
+    ascii_banner = art.text2art(text, font="glenyn-large")
     ascii_banner = fg(255, 213, 128) + ascii_banner + fg.rs
 
     cprint(ascii_banner, attrs=["bold"])
-
+    
 
 def cli():
     """CLI function that shows a list of questions regarding
