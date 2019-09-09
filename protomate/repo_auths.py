@@ -40,7 +40,7 @@ def is_pass_saved(github_username):
     username = github_username
     password = keyring.get_password(appname, username)
     if password is not None:
-        
+
         g = Github(username, password)
         user = g.get_user()
         try:
