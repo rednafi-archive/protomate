@@ -38,8 +38,17 @@ def authentication(github_username, github_password):
 def is_pass_saved(github_username):
     appname = "protomate"
     username = github_username
-    if keyring.get_password(appname, username) is not None:
-        is_saved = True
+    password = keyring.get_password(appname, username)
+    if password is not None:
+        
+        g = Github(username, password)
+        user = g.get_user()
+        try:
+            user.login
+            is_saved = True
+        except Exception as e:
+            is_saved = False
+            print("\nWrong password saved. Enter your password again.\n")
     else:
         is_saved = False
     return is_saved

@@ -1,189 +1,39 @@
--------------||time:2019-07-20T21:33:00.114252+0600||level:ERROR||-------------
+-------------||time:2019-09-09T14:51:55.369801+0600||level:ERROR||-------------
 401 {'message': 'Bad credentials', 'documentation_url': 'https://developer.github.com/v3'}
 
 Traceback (most recent call last):
-  File "/home/redowan/code/protomate/protomate/script.py", line 277, in <module>
-    main()
-  File "/home/redowan/code/protomate/protomate/script.py", line 270, in main
-    g, user = protomate.authentication(github_username, github_password)
-> File "/home/redowan/code/protomate/protomate/script.py", line 139, in authentication
-    self.user.login
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/AuthenticatedUser.py", line 230, in login
-    self._completeIfNotSet(self._login)
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/GithubObject.py", line 263, in _completeIfNotSet
-    self._completeIfNeeded()
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/GithubObject.py", line 267, in _completeIfNeeded
-    self.__complete()
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/GithubObject.py", line 272, in __complete
-    self._url.value
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/Requester.py", line 275, in requestJsonAndCheck
-    return self.__check(*self.requestJson(verb, url, parameters, headers, input, self.__customConnection(url)))
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/Requester.py", line 286, in __check
-    raise self.__createException(status, responseHeaders, output)
-github.GithubException.BadCredentialsException: 401 {'message': 'Bad credentials', 'documentation_url': 'https://developer.github.com/v3'}
--------------||time:2019-07-20T22:00:49.655079+0600||level:ERROR||-------------
-401 {'message': 'Requires authentication', 'documentation_url': 'https://developer.github.com/v3/users/#get-the-authenticated-user'}
-
-Traceback (most recent call last):
-  File "/home/redowan/code/protomate/protomate/script.py", line 277, in <module>
-    main()
-  File "/home/redowan/code/protomate/protomate/script.py", line 270, in main
-    g, user = protomate.authentication(github_username, github_password)
-> File "/home/redowan/code/protomate/protomate/script.py", line 139, in authentication
-    self.user.login
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/AuthenticatedUser.py", line 230, in login
-    self._completeIfNotSet(self._login)
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/GithubObject.py", line 263, in _completeIfNotSet
-    self._completeIfNeeded()
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/GithubObject.py", line 267, in _completeIfNeeded
-    self.__complete()
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/GithubObject.py", line 272, in __complete
-    self._url.value
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/Requester.py", line 275, in requestJsonAndCheck
-    return self.__check(*self.requestJson(verb, url, parameters, headers, input, self.__customConnection(url)))
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/Requester.py", line 286, in __check
-    raise self.__createException(status, responseHeaders, output)
-github.GithubException.GithubException: 401 {'message': 'Requires authentication', 'documentation_url': 'https://developer.github.com/v3/users/#get-the-authenticated-user'}
--------------||time:2019-07-20T22:12:09.906936+0600||level:ERROR||-------------
-401 {'message': 'Requires authentication', 'documentation_url': 'https://developer.github.com/v3/users/#get-the-authenticated-user'}
-
-Traceback (most recent call last):
-  File "/home/redowan/code/protomate/protomate/script.py", line 277, in <module>
-    main()
-  File "/home/redowan/code/protomate/protomate/script.py", line 270, in main
-    g, user = protomate.authentication(github_username, github_password)
-> File "/home/redowan/code/protomate/protomate/script.py", line 139, in authentication
-    self.user.login
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/AuthenticatedUser.py", line 230, in login
-    self._completeIfNotSet(self._login)
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/GithubObject.py", line 263, in _completeIfNotSet
-    self._completeIfNeeded()
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/GithubObject.py", line 267, in _completeIfNeeded
-    self.__complete()
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/GithubObject.py", line 272, in __complete
-    self._url.value
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/Requester.py", line 275, in requestJsonAndCheck
-    return self.__check(*self.requestJson(verb, url, parameters, headers, input, self.__customConnection(url)))
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/Requester.py", line 286, in __check
-    raise self.__createException(status, responseHeaders, output)
-github.GithubException.GithubException: 401 {'message': 'Requires authentication', 'documentation_url': 'https://developer.github.com/v3/users/#get-the-authenticated-user'}
--------------||time:2019-07-20T22:12:47.415586+0600||level:ERROR||-------------
-401 {'message': 'Requires authentication', 'documentation_url': 'https://developer.github.com/v3/users/#get-the-authenticated-user'}
-
-Traceback (most recent call last):
-  File "/home/redowan/code/protomate/protomate/script.py", line 276, in <module>
-    main()
-  File "/home/redowan/code/protomate/protomate/script.py", line 269, in main
-    g, user = protomate.authentication(github_username, github_password)
-> File "/home/redowan/code/protomate/protomate/script.py", line 139, in authentication
-    self.user.login
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/AuthenticatedUser.py", line 230, in login
-    self._completeIfNotSet(self._login)
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/GithubObject.py", line 263, in _completeIfNotSet
-    self._completeIfNeeded()
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/GithubObject.py", line 267, in _completeIfNeeded
-    self.__complete()
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/GithubObject.py", line 272, in __complete
-    self._url.value
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/Requester.py", line 275, in requestJsonAndCheck
-    return self.__check(*self.requestJson(verb, url, parameters, headers, input, self.__customConnection(url)))
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/Requester.py", line 286, in __check
-    raise self.__createException(status, responseHeaders, output)
-github.GithubException.GithubException: 401 {'message': 'Requires authentication', 'documentation_url': 'https://developer.github.com/v3/users/#get-the-authenticated-user'}
--------------||time:2019-07-20T22:20:12.766582+0600||level:ERROR||-------------
-401 {'message': 'Bad credentials', 'documentation_url': 'https://developer.github.com/v3'}
-
-Traceback (most recent call last):
-  File "/home/redowan/code/protomate/protomate/script.py", line 276, in <module>
-    main()
-  File "/home/redowan/code/protomate/protomate/script.py", line 269, in main
-    g, user = protomate.authentication(github_username, github_password)
-> File "/home/redowan/code/protomate/protomate/script.py", line 139, in authentication
-    self.user.login
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/AuthenticatedUser.py", line 230, in login
-    self._completeIfNotSet(self._login)
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/GithubObject.py", line 263, in _completeIfNotSet
-    self._completeIfNeeded()
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/GithubObject.py", line 267, in _completeIfNeeded
-    self.__complete()
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/GithubObject.py", line 272, in __complete
-    self._url.value
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/Requester.py", line 275, in requestJsonAndCheck
-    return self.__check(*self.requestJson(verb, url, parameters, headers, input, self.__customConnection(url)))
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/Requester.py", line 286, in __check
-    raise self.__createException(status, responseHeaders, output)
-github.GithubException.BadCredentialsException: 401 {'message': 'Bad credentials', 'documentation_url': 'https://developer.github.com/v3'}
--------------||time:2019-07-20T22:21:38.764343+0600||level:ERROR||-------------
-401 {'message': 'Bad credentials', 'documentation_url': 'https://developer.github.com/v3'}
-
-Traceback (most recent call last):
-  File "/home/redowan/code/protomate/protomate/script.py", line 276, in <module>
-    main()
-  File "/home/redowan/code/protomate/protomate/script.py", line 269, in main
-    g, user = protomate.authentication(github_username, github_password)
-> File "/home/redowan/code/protomate/protomate/script.py", line 139, in authentication
-    self.user.login
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/AuthenticatedUser.py", line 230, in login
-    self._completeIfNotSet(self._login)
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/GithubObject.py", line 263, in _completeIfNotSet
-    self._completeIfNeeded()
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/GithubObject.py", line 267, in _completeIfNeeded
-    self.__complete()
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/GithubObject.py", line 272, in __complete
-    self._url.value
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/Requester.py", line 275, in requestJsonAndCheck
-    return self.__check(*self.requestJson(verb, url, parameters, headers, input, self.__customConnection(url)))
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/Requester.py", line 286, in __check
-    raise self.__createException(status, responseHeaders, output)
-github.GithubException.BadCredentialsException: 401 {'message': 'Bad credentials', 'documentation_url': 'https://developer.github.com/v3'}
--------------||time:2019-07-24T17:46:35.455657+0600||level:ERROR||-------------
-Command '
-                    cd reddr
-                    git init
-                    git remote add origin git@github.com:
-                    rednafi/reddr.git
-                    touch README.md
-                    curl -X GET https://www.gitignore.io/api/python >
-                    .gitignore
-                    git add .
-                    git commit -m "Initial commit"
-                    git push -u origin master
-                    code .
-                    ' returned non-zero exit status 2.
-
-Traceback (most recent call last):
-  File "/media/redowan/New Volume/protomate/protomate/script.py", line 276, in <module>
-    main()
-  File "/media/redowan/New Volume/protomate/protomate/script.py", line 272, in main
-    protomate.connect_local_to_remote(repo_name, github_username, gitignore)
-> File "/media/redowan/New Volume/protomate/protomate/script.py", line 236, in connect_local_to_remote
-    subprocess.check_output(self.cmd_gitignore, shell=True)
-  File "/usr/lib/python3.6/subprocess.py", line 356, in check_output
-    **kwargs).stdout
-  File "/usr/lib/python3.6/subprocess.py", line 438, in run
-    output=stdout, stderr=stderr)
-subprocess.CalledProcessError: Command '
-                    cd reddr
-                    git init
-                    git remote add origin git@github.com:
-                    rednafi/reddr.git
-                    touch README.md
-                    curl -X GET https://www.gitignore.io/api/python >
-                    .gitignore
-                    git add .
-                    git commit -m "Initial commit"
-                    git push -u origin master
-                    code .
-                    ' returned non-zero exit status 2.
--------------||time:2019-09-08T20:24:59.653140+0600||level:ERROR||-------------
-401 {'message': 'Bad credentials', 'documentation_url': 'https://developer.github.com/v3'}
-
-Traceback (most recent call last):
-  File "/home/redowan/code/protomate/protomate/script.py", line 41, in <module>
+  File "/home/redowan/code/protomate/protomate/script.py", line 46, in <module>
     main()
   File "/home/redowan/code/protomate/protomate/script.py", line 34, in main
+    cli()
+  File "/home/redowan/code/protomate/protomate/cli_prompts.py", line 58, in cli
+    PASS_SAVED = is_pass_saved(github_username)
+  File "/home/redowan/code/protomate/protomate/repo_auths.py", line 44, in is_pass_saved
+    authentication(username, password)
+> File "/home/redowan/code/protomate/protomate/repo_auths.py", line 29, in authentication
+    user.login
+  File "/home/redowan/code/protomate/venv/lib/python3.7/site-packages/github/AuthenticatedUser.py", line 230, in login
+    self._completeIfNotSet(self._login)
+  File "/home/redowan/code/protomate/venv/lib/python3.7/site-packages/github/GithubObject.py", line 303, in _completeIfNotSet
+    self._completeIfNeeded()
+  File "/home/redowan/code/protomate/venv/lib/python3.7/site-packages/github/GithubObject.py", line 307, in _completeIfNeeded
+    self.__complete()
+  File "/home/redowan/code/protomate/venv/lib/python3.7/site-packages/github/GithubObject.py", line 310, in __complete
+    headers, data = self._requester.requestJsonAndCheck("GET", self._url.value)
+  File "/home/redowan/code/protomate/venv/lib/python3.7/site-packages/github/Requester.py", line 326, in requestJsonAndCheck
+    verb, url, parameters, headers, input, self.__customConnection(url)
+  File "/home/redowan/code/protomate/venv/lib/python3.7/site-packages/github/Requester.py", line 349, in __check
+    raise self.__createException(status, responseHeaders, output)
+github.GithubException.BadCredentialsException: 401 {'message': 'Bad credentials', 'documentation_url': 'https://developer.github.com/v3'}
+-------------||time:2019-09-09T15:13:32.502108+0600||level:ERROR||-------------
+401 {'message': 'Bad credentials', 'documentation_url': 'https://developer.github.com/v3'}
+
+Traceback (most recent call last):
+  File "/home/redowan/.local/bin/protomate", line 10, in <module>
+    sys.exit(main())
+  File "/home/redowan/.local/lib/python3.7/site-packages/protomate/script.py", line 39, in main
     g, user = authentication(github_username, github_password)
-> File "/home/redowan/code/protomate/protomate/repo_auth.py", line 28, in authentication
+> File "/home/redowan/.local/lib/python3.7/site-packages/protomate/repo_auths.py", line 29, in authentication
     user.login
   File "/home/redowan/.local/lib/python3.7/site-packages/github/AuthenticatedUser.py", line 230, in login
     self._completeIfNotSet(self._login)
@@ -198,32 +48,49 @@ Traceback (most recent call last):
   File "/home/redowan/.local/lib/python3.7/site-packages/github/Requester.py", line 287, in __check
     raise self.__createException(status, responseHeaders, output)
 github.GithubException.BadCredentialsException: 401 {'message': 'Bad credentials', 'documentation_url': 'https://developer.github.com/v3'}
--------------||time:2019-09-08T21:40:31.186610+0600||level:ERROR||-------------
-mkdir: path should be string, bytes or os.PathLike, not Question
-
--------------||time:2019-09-08T21:44:01.258446+0600||level:ERROR||-------------
-[Errno 17] File exists: 'rednafi'
-
--------------||time:2019-09-08T21:44:52.911526+0600||level:ERROR||-------------
+-------------||time:2019-09-09T15:21:44.768723+0600||level:ERROR||-------------
 401 {'message': 'Bad credentials', 'documentation_url': 'https://developer.github.com/v3'}
 
 Traceback (most recent call last):
-  File "/home/redowan/code/protomate/protomate/script.py", line 43, in <module>
+  File "/home/redowan/code/protomate/protomate/script.py", line 46, in <module>
     main()
-  File "/home/redowan/code/protomate/protomate/script.py", line 36, in main
+  File "/home/redowan/code/protomate/protomate/script.py", line 39, in main
     g, user = authentication(github_username, github_password)
-> File "/home/redowan/code/protomate/protomate/repo_auth.py", line 29, in authentication
+> File "/home/redowan/code/protomate/protomate/repo_auths.py", line 29, in authentication
     user.login
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/AuthenticatedUser.py", line 230, in login
+  File "/home/redowan/code/protomate/venv/lib/python3.7/site-packages/github/AuthenticatedUser.py", line 230, in login
     self._completeIfNotSet(self._login)
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/GithubObject.py", line 265, in _completeIfNotSet
+  File "/home/redowan/code/protomate/venv/lib/python3.7/site-packages/github/GithubObject.py", line 303, in _completeIfNotSet
     self._completeIfNeeded()
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/GithubObject.py", line 269, in _completeIfNeeded
+  File "/home/redowan/code/protomate/venv/lib/python3.7/site-packages/github/GithubObject.py", line 307, in _completeIfNeeded
     self.__complete()
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/GithubObject.py", line 274, in __complete
-    self._url.value
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/Requester.py", line 276, in requestJsonAndCheck
-    return self.__check(*self.requestJson(verb, url, parameters, headers, input, self.__customConnection(url)))
-  File "/home/redowan/.local/lib/python3.7/site-packages/github/Requester.py", line 287, in __check
+  File "/home/redowan/code/protomate/venv/lib/python3.7/site-packages/github/GithubObject.py", line 310, in __complete
+    headers, data = self._requester.requestJsonAndCheck("GET", self._url.value)
+  File "/home/redowan/code/protomate/venv/lib/python3.7/site-packages/github/Requester.py", line 326, in requestJsonAndCheck
+    verb, url, parameters, headers, input, self.__customConnection(url)
+  File "/home/redowan/code/protomate/venv/lib/python3.7/site-packages/github/Requester.py", line 349, in __check
+    raise self.__createException(status, responseHeaders, output)
+github.GithubException.BadCredentialsException: 401 {'message': 'Bad credentials', 'documentation_url': 'https://developer.github.com/v3'}
+-------------||time:2019-09-09T15:22:46.565841+0600||level:ERROR||-------------
+401 {'message': 'Bad credentials', 'documentation_url': 'https://developer.github.com/v3'}
+
+Traceback (most recent call last):
+  File "/home/redowan/code/protomate/protomate/script.py", line 46, in <module>
+    main()
+  File "/home/redowan/code/protomate/protomate/script.py", line 39, in main
+    g, user = authentication(github_username, github_password)
+> File "/home/redowan/code/protomate/protomate/repo_auths.py", line 29, in authentication
+    user.login
+  File "/home/redowan/code/protomate/venv/lib/python3.7/site-packages/github/AuthenticatedUser.py", line 230, in login
+    self._completeIfNotSet(self._login)
+  File "/home/redowan/code/protomate/venv/lib/python3.7/site-packages/github/GithubObject.py", line 303, in _completeIfNotSet
+    self._completeIfNeeded()
+  File "/home/redowan/code/protomate/venv/lib/python3.7/site-packages/github/GithubObject.py", line 307, in _completeIfNeeded
+    self.__complete()
+  File "/home/redowan/code/protomate/venv/lib/python3.7/site-packages/github/GithubObject.py", line 310, in __complete
+    headers, data = self._requester.requestJsonAndCheck("GET", self._url.value)
+  File "/home/redowan/code/protomate/venv/lib/python3.7/site-packages/github/Requester.py", line 326, in requestJsonAndCheck
+    verb, url, parameters, headers, input, self.__customConnection(url)
+  File "/home/redowan/code/protomate/venv/lib/python3.7/site-packages/github/Requester.py", line 349, in __check
     raise self.__createException(status, responseHeaders, output)
 github.GithubException.BadCredentialsException: 401 {'message': 'Bad credentials', 'documentation_url': 'https://developer.github.com/v3'}

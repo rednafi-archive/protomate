@@ -3,9 +3,9 @@ from pprint import pprint
 from github import Github
 from loguru import logger
 
-from protomate.cli_prompts import draw_ascii_banner, cli
-from protomate.repo_auths import authentication, is_pass_saved, save_pass, retrieve_pass
-from protomate.repo_actions import (
+from cli_prompts import draw_ascii_banner, cli
+from repo_auths import authentication, is_pass_saved, save_pass, retrieve_pass
+from repo_actions import (
     create_local_repo,
     create_remote_repo,
     connect_local_to_remote,
@@ -30,7 +30,6 @@ def main():
     """
 
     draw_ascii_banner()
-
     github_username, github_password, password_save, repo_name, repo_type, gitignore = (
         cli()
     )

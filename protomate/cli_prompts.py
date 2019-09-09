@@ -1,10 +1,11 @@
-from pyfiglet import figlet_format
 import questionary
 from prompt_toolkit.styles import Style
+import sys
+from repo_auths import is_pass_saved, save_pass, retrieve_pass
+import art
+from sty import fg, rs
 from termcolor import cprint
 import colorama
-import sys
-from protomate.repo_auths import is_pass_saved, save_pass, retrieve_pass
 
 colorama.init(strip=not sys.stdout.isatty())
 
@@ -13,9 +14,11 @@ def draw_ascii_banner():
     """
     Draw Protomate banner !!!
     """
-    text = "Protomate"
-    ascii_banner = figlet_format(text, font="standard")
-    cprint(ascii_banner, "cyan", attrs=["bold"])
+    text = "ProtomatE"
+    ascii_banner = art.text2art(text, font="fire_font-s")
+    ascii_banner = fg(255, 213, 128) + ascii_banner + fg.rs
+
+    cprint(ascii_banner, attrs=["bold"])
 
 
 def cli():
@@ -28,8 +31,6 @@ def cli():
         Github user name where the repository will be created.
     github_password : str
         Github password.
-    password_save : str
-        Yes or No about whether to save the password or not
     repo_name : str
         Desired repository name.
     repo_type : str

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "protomate"
-version = "0.5.1"
+version = "0.5.4"
 description = "Python built CLI tool for automated github project initialization."
 authors = ["Redowan Delowar"]
 license = "MIT"
@@ -20,20 +20,22 @@ classifiers=[
 
 [tool.poetry.dependencies]
 python = "^3.6"
-colorama= "0.4.1"
 loguru= "0.3.2"
 prompt_toolkit = "2.0.9"
-pyfiglet= "0.8.post1"
 PyGithub= "1.43.8"
 questionary= "1.3.0"
-termcolor= "1.1.0"
+keyring="^19.1.0"
+art="^3.9"
+sty="1.0.0b11"
+termcolor="1.1.0"
+colorama="0.4.1"
 
 [tool.poetry.dev-dependencies]
 setuptools = "41.2.0"
-
+black = {version = "^18.3-alpha.0", allows-prereleases = true}
+[tool.poetry.scripts]
+protomate = 'protomate.script:main'
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
 
-[tool.poetry.scripts]
-protomate = 'protomate.script:main'
