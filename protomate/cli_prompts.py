@@ -19,7 +19,7 @@ def draw_ascii_banner():
     ascii_banner = fg(255, 213, 128) + ascii_banner + fg.rs
 
     cprint(ascii_banner, attrs=["bold"])
-    
+
 
 def cli():
     """CLI function that shows a list of questions regarding
