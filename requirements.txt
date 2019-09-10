@@ -1,5 +1,5 @@
 questionary==1.3.0
-sty==1.0.0b11
+sty==1.0.0b12
 colorama==0.4.1
 setuptools==41.2.0
 termcolor==1.1.0
