@@ -3,7 +3,7 @@ sty==1.0.0b11
 colorama==0.4.1
 setuptools==41.2.0
 termcolor==1.1.0
-keyring==19.1.0
+keyring==19.2.0
 art==3.9
 loguru==0.3.2
 prompt_toolkit==2.0.9
