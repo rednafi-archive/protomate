@@ -1,7 +1,7 @@
 import os
 import sys
 
-from protomate.repo_auths import (
+from .repo_auths import (
     authentication,
     is_pass_saved,
     save_pass,
