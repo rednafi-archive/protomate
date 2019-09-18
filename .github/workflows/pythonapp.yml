@@ -26,4 +26,6 @@ jobs:
     - name: Test with pytest
       run: |
         pip install pytest
+        cd protomate
         pytest
+        
