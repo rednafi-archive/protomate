@@ -12,10 +12,13 @@ from protomate.repo_actions import (
 )
 
 import sys
+import signal
 
-sys.tracebacklimit = -1
+
+sys.tracebacklimit = -10
 
 
+# log
 LOG_FILENAME = "logs/logfile.log"
 logger.remove(0)
 logger.add(
@@ -37,6 +40,7 @@ def main():
     github_username, github_password, password_save, repo_name, repo_type, gitignore = (
         cli()
     )
+
     save_pass(password_save, github_username, github_password)
     print("Thanks for all your information, hang tight while we are at it...")
 

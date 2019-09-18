@@ -46,7 +46,9 @@ def is_pass_saved(github_username):
         try:
             user.login
             is_saved = True
+
         except Exception as e:
+            logger.exception(e)
             is_saved = False
             print("\nWrong password saved. Enter your password again.\n")
     else:
