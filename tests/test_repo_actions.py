@@ -1,3 +1,7 @@
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
+
 from protomate.repo_actions import (
     create_local_repo,
     create_remote_repo,
@@ -8,6 +12,7 @@ from protomate.repo_auths import authentication
 from github import Github
 from github.GithubException import UnknownObjectException
 import pytest
+
 
 
 def delete_repo(g, username, repo_name_public, repo_name_private):
