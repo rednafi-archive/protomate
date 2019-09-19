@@ -7,13 +7,14 @@
 This will perform the following tasks:
 
 - Create a new project folder in your **current** folder
+- Ask for your username and password (and also if you'd like to save your password)
 - Initialize a git repository
 - Create a remote repository
 - Add remote to the local repository
 - Add a `readme.md` file
 - Add a `.gitignore` file specific for your language of choice
 - Perform initial stage, commit, push
-- Open the project folder in vscode
+- Try to open the project folder in vscode
 
 ## Installation
 
