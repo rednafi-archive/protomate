@@ -20,7 +20,7 @@ coverage = ">=4.1"
 [[package]]
 category = "main"
 description = "Fast ASN.1 parser and serializer with definitions for private keys, public keys, certificates, CRL, OCSP, CMS, PKCS#3, PKCS#7, PKCS#8, PKCS#12, PKCS#5, X.509 and TSP"
-marker = "sys_platform == \"linux\" and python_version >= \"3.5\""
+marker = "sys_platform == \"linux\""
 name = "asn1crypto"
 optional = false
 python-versions = "*"
@@ -59,7 +59,7 @@ version = "2019.9.11"
 [[package]]
 category = "main"
 description = "Foreign Function Interface for Python calling C code."
-marker = "sys_platform == \"linux\" and python_version >= \"3.5\""
+marker = "sys_platform == \"linux\""
 name = "cffi"
 optional = false
 python-versions = "*"
@@ -103,7 +103,7 @@ version = "4.5.4"
 [[package]]
 category = "main"
 description = "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
-marker = "sys_platform == \"linux\" and python_version >= \"3.5\""
+marker = "sys_platform == \"linux\""
 name = "cryptography"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
@@ -158,7 +158,7 @@ version = "2.8"
 [[package]]
 category = "main"
 description = "Low-level, pure Python DBus protocol wrapper."
-marker = "sys_platform == \"linux\" and python_version >= \"3.5\""
+marker = "sys_platform == \"linux\""
 name = "jeepney"
 optional = false
 python-versions = ">=3.5"
@@ -169,16 +169,13 @@ category = "main"
 description = "Store and access your passwords safely."
 name = "keyring"
 optional = false
-python-versions = ">=2.7"
-version = "17.1.1"
+python-versions = ">=3.5"
+version = "19.2.0"
 
 [package.dependencies]
 entrypoints = "*"
 pywin32-ctypes = "<0.1.0 || >0.1.0,<0.1.1 || >0.1.1"
-
-[package.dependencies.secretstorage]
-python = ">=3.5"
-version = "*"
+secretstorage = "*"
 
 [[package]]
 category = "main"
@@ -223,7 +220,7 @@ version = "2.5.0"
 [[package]]
 category = "main"
 description = "C parser in Python"
-marker = "sys_platform == \"linux\" and python_version >= \"3.5\""
+marker = "sys_platform == \"linux\""
 name = "pycparser"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
@@ -295,7 +292,7 @@ urllib3 = ">=1.21.1,<1.25.0 || >1.25.0,<1.25.1 || >1.25.1,<1.26"
 [[package]]
 category = "main"
 description = "Python bindings to FreeDesktop.org Secret Service API"
-marker = "sys_platform == \"linux\" and python_version >= \"3.5\""
+marker = "sys_platform == \"linux\""
 name = "secretstorage"
 optional = false
 python-versions = ">=3.5"
@@ -371,7 +368,7 @@ python-versions = "*"
 version = "1.11.2"
 
 [metadata]
-content-hash = "d7e76fbde502fc4a0ca4cc292a86ab630c9b0f50c304de97ce7eea5cf371a79f"
+content-hash = "6798147d8834610c95ab108b7f5eaa5aad17d2f4565f2ae8d4afcb6357167ff3"
 python-versions = "^3.6"
 
 [metadata.hashes]
@@ -392,7 +389,7 @@ entrypoints = ["589f874b313739ad35be6e0cd7efde2a4e9b6fea91edcc34e58ecbb8dbe56d19
 flake8 = ["19241c1cbc971b9962473e4438a2ca19749a7dd002dd1a946eaba171b4114548", "8e9dfa3cecb2400b3738a42c54c3043e821682b9c840b0448c0503f781130696"]
 idna = ["c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407", "ea8b7f6188e6fa117537c3df7da9fc686d485087abf6ac197f9c46432f7e4a3c"]
 jeepney = ["13806f91a96e9b2623fd2a81b950d763ee471454aafd9eb6d75dbe7afce428fb", "f6a3f93464a0cf052f4e87da3c8b3ed1e27696758fb9739c63d3a74d9a1b6774"]
-keyring = ["8f683fa6c8886da58b28c7d8e3819b1a4bf193741888e33a6e00944b673a22cf", "d71368b9a10dc096c8a1b69a46fc23f0a551f709b9a55b4d4deb7d2fbd809b68"]
+keyring = ["91037ccaf0c9a112a76f7740e4a416b9457a69b66c2799421581bee710a974b3", "f5bb20ea6c57c2360daf0c591931c9ea0d7660a8d9e32ca84d63273f131ea605"]
 loguru = ["b6fad0d7aed357b5c147edcc6982606b933754338950b72d8123f48c150c5a4f", "e3138bfdee5f57481a2a6e078714be20f8c71ab1ff3f07f8fb1cfa25191fed2a"]
 mccabe = ["ab8a6258860da4b6677da4bd2fe5dc2c659cff31b3ee4f7f5d64e79735b80d42", "dd8d182285a0fe56bace7f45b5e7d1a6ebcbf524e8f3bd87eb0f125271b8831f"]
 prompt-toolkit = ["11adf3389a996a6d45cc277580d0d53e8a5afd281d0c9ec71b28e6f121463780", "2519ad1d8038fd5fc8e770362237ad0364d16a7650fb5724af6997ed5515e3c1", "977c6583ae813a37dc1c2e1b715892461fcbdaa57f6fc62f33a528c4886c8f55"]
