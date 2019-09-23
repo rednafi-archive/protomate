@@ -3,8 +3,10 @@ from loguru import logger
 import sys
 import keyring
 from github.GithubException import BadCredentialsException
+from protomate.utils import logfunc
 
 
+@logfunc
 def authentication(github_username, github_password):
     """Function for github authentication
 
@@ -36,6 +38,7 @@ def authentication(github_username, github_password):
     return (g, user)
 
 
+@logfunc
 def is_pass_saved(github_username):
     appname = "protomate"
     username = github_username
@@ -57,6 +60,7 @@ def is_pass_saved(github_username):
     return is_saved
 
 
+@logfunc
 def save_pass(password_save, github_username, password):
     appname = "protomate"
     username = github_username
@@ -64,6 +68,7 @@ def save_pass(password_save, github_username, password):
         keyring.set_password(appname, username, password)
 
 
+@logfunc
 def retrieve_pass(github_username):
     appname = "protomate"
     username = github_username
@@ -71,6 +76,7 @@ def retrieve_pass(github_username):
     return password
 
 
+@logfunc
 def delete_pass(github_username):
     appname = "protomate"
     username = github_username

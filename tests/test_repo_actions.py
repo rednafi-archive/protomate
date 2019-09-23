@@ -2,13 +2,13 @@ import os
 import sys
 
 
-from .repo_actions import (
+from protomate.repo_actions import (
     create_local_repo,
     create_remote_repo,
     connect_local_to_remote,
 )
 
-from .repo_auths import authentication
+from protomate.repo_auths import authentication
 from github import Github
 from github.GithubException import UnknownObjectException
 import pytest

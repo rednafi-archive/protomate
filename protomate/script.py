@@ -15,23 +15,6 @@ import sys
 import signal
 
 
-sys.tracebacklimit = -10
-
-
-# log
-LOG_FILENAME = "logs/logfile.log"
-logger.remove(0)
-logger.add(
-    LOG_FILENAME,
-    format="-------------||time:{time}||level:{level}||-------------\n{message}\n",
-    level="ERROR",
-    backtrace=True,
-    diagnose=False,
-    enqueue=True,
-    rotation="1 MB",
-)
-
-
 def main():
     """Main function
     """

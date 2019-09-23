@@ -4,9 +4,11 @@ import sys
 import os
 from protomate.languages import PROGRAMMING_LANGUAGES
 import subprocess
-from github.GithubExceptions import GithubExceptions
+from github.GithubException import GithubException
+from protomate.utils import logfunc
 
 
+@logfunc
 def create_local_repo(repo_name):
     """Creates a local directory
 
@@ -20,10 +22,10 @@ def create_local_repo(repo_name):
         os.mkdir(repo_name)
 
     except FileExistsError as e:
-        logger.error(e)
         sys.exit(f"LocalExistsError: Local repository '{repo_name}' already exists")
 
 
+@logfunc
 def create_remote_repo(g, github_username, repo_name, repo_type):
     """Function that creates remote repository.
 
@@ -49,13 +51,14 @@ def create_remote_repo(g, github_username, repo_name, repo_type):
         else:
             user.create_repo(repo_name, private=False)
 
-    except GithubExceptions as e:
+    except GithubException as e:
         logger.exception(e)
         sys.exit(
             f"RemoteCreationError: Remote repository '{repo_name}' already exists "
         )
 
 
+@logfunc
 def connect_local_to_remote(repo_name, github_username, gitignore):
     """Function that connects remote and local repositories.
 

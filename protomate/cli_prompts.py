@@ -10,6 +10,7 @@ import colorama
 colorama.init(strip=not sys.stdout.isatty())
 
 
+@logfunc
 def draw_ascii_banner():
     """
     Draw Protomate banner !!!
@@ -21,6 +22,7 @@ def draw_ascii_banner():
     cprint(ascii_banner, attrs=["bold"])
 
 
+@logfunc
 def cli():
     """CLI function that shows a list of questions regarding
     github credentials and other functionalities.

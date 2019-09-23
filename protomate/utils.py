@@ -1,35 +1,39 @@
-from github import Github
+import functools
 from loguru import logger
+from timeit import default_timer as timer
 import sys
-import os
-from protomate.languages import PROGRAMMING_LANGUAGES
-import subprocess
+from pprint import pprint
 
 
-def create_remote_repo(g, github_username, repo_name, repo_type):
-    """Function that creates remote repository.
+def logfunc(func):
+    @functools.wraps(func)
+    def wrapper_logfunc(*args, **kwargs):
+        try:
+            value = func(*args, **kwargs)
+        except Exception as e:
+            logger.remove()
+            logger.add(
+                sys.stdout,
+                colorize=True,
+                format="<green>{time: YYYY-MM-DD at HH:mm:ss}</green> <level>{message}</level>",
+            )
+            logger.add("logfile.log", rotation="500 MB")
+            logger.exception(e)
+        return value
 
-    Parameters
-    ----------
-    g : github.MainClass.Github
-        Github object from PyGithub package.
-    github_username : str
-        Github user name where the repository will be created.
-    repo_name : str
-        Desired repository name.
-    repo_type : str
-        Whether the repository will be public or private.
-
-    """
-
-    user = g.get_user()
-
-    if repo_type == "Private":
-        user.create_repo(repo_name, private=True)
-
-    else:
-        user.create_repo(repo_name, private=False)
+    return wrapper_logfunc
 
 
-g = Github("deceptive-ai", "creativepassword6969")
-print(create_remote_repo(g, 'deceptive-ai', 'reddington', "d"))
+def timefunc(func):
+    @functools.wraps(func)
+    def wrapper_timefunc(*args, **kwargs):
+        start_time = timer()
+        value = func(*args, **kwargs)
+        end_time = timer()
+        run_time = end_time - start_time
+        print(f"Function {func.__name__} took {run_time} seconds to execute")
+        return value
+
+    return wrapper_timefunc
+
+
