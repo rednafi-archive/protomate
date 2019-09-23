@@ -14,7 +14,6 @@ from github.GithubException import UnknownObjectException
 import pytest
 
 
-
 def delete_repo(g, username, repo_name_public, repo_name_private):
 
     # delete public repo

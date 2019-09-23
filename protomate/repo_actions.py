@@ -4,6 +4,7 @@ import sys
 import os
 from protomate.languages import PROGRAMMING_LANGUAGES
 import subprocess
+from github.GithubExceptions import GithubExceptions
 
 
 def create_local_repo(repo_name):
@@ -18,7 +19,7 @@ def create_local_repo(repo_name):
     try:
         os.mkdir(repo_name)
 
-    except Exception as e:
+    except FileExistsError as e:
         logger.error(e)
         sys.exit(f"LocalExistsError: Local repository '{repo_name}' already exists")
 
@@ -48,7 +49,7 @@ def create_remote_repo(g, github_username, repo_name, repo_type):
         else:
             user.create_repo(repo_name, private=False)
 
-    except Exception as e:
+    except GithubExceptions as e:
         logger.exception(e)
         sys.exit(
             f"RemoteCreationError: Remote repository '{repo_name}' already exists "

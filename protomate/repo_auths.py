@@ -2,6 +2,7 @@ from github import Github
 from loguru import logger
 import sys
 import keyring
+from github.GithubException import BadCredentialsException
 
 
 def authentication(github_username, github_password):
@@ -28,7 +29,7 @@ def authentication(github_username, github_password):
     try:
         user.login
 
-    except Exception as e:
+    except BadCredentialsException as e:
         logger.exception(e)
         sys.exit("AuthError: Username or password is incorrect")
 
@@ -47,7 +48,7 @@ def is_pass_saved(github_username):
             user.login
             is_saved = True
 
-        except Exception as e:
+        except BadCredentialsException as e:
             logger.exception(e)
             is_saved = False
             print("\nWrong password saved. Enter your password again.\n")
