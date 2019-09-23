@@ -1,5 +1,4 @@
 from github import Github
-from loguru import logger
 import sys
 import keyring
 from github.GithubException import BadCredentialsException

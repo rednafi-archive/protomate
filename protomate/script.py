@@ -1,7 +1,6 @@
 import getpass
 from pprint import pprint
 from github import Github
-from loguru import logger
 
 from protomate.cli_prompts import draw_ascii_banner, cli
 from protomate.repo_auths import authentication, is_pass_saved, save_pass, retrieve_pass

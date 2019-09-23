@@ -1,5 +1,4 @@
 from github import Github
-from loguru import logger
 import sys
 import os
 from protomate.languages import PROGRAMMING_LANGUAGES
