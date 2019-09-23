@@ -6,6 +6,7 @@ import art
 from sty import fg, rs
 from termcolor import cprint
 import colorama
+from protomate.utils import logfunc
 
 colorama.init(strip=not sys.stdout.isatty())
 

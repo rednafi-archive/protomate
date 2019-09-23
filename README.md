@@ -26,7 +26,7 @@ This will perform the following tasks:
 Install `protomate` via:
 
 ```
-$ pip3 install protomate==0.6.0
+$ pip3 install protomate==0.6.1
 ```
 
 ## Run the App
