@@ -4,6 +4,8 @@ from timeit import default_timer as timer
 import sys
 from pprint import pprint
 
+sys.traceback = -10
+
 
 def logfunc(func):
     @functools.wraps(func)
@@ -17,8 +19,9 @@ def logfunc(func):
                 colorize=True,
                 format="<green>{time: YYYY-MM-DD at HH:mm:ss}</green> <level>{message}</level>",
             )
-            logger.add("logfile.log", rotation="500 MB")
+            logger.add("logs/logfile.log", rotation="500 MB")
             logger.exception(e)
+            sys.exit()
         return value
 
     return wrapper_logfunc
@@ -35,5 +38,3 @@ def timefunc(func):
         return value
 
     return wrapper_timefunc
-
-

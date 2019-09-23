@@ -31,8 +31,7 @@ def authentication(github_username, github_password):
     try:
         user.login
 
-    except BadCredentialsException as e:
-        logger.exception(e)
+    except BadCredentialsException:
         sys.exit("AuthError: Username or password is incorrect")
 
     return (g, user)
@@ -51,8 +50,7 @@ def is_pass_saved(github_username):
             user.login
             is_saved = True
 
-        except BadCredentialsException as e:
-            logger.exception(e)
+        except BadCredentialsException:
             is_saved = False
             print("\nWrong password saved. Enter your password again.\n")
     else:

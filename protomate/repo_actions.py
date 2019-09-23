@@ -21,7 +21,7 @@ def create_local_repo(repo_name):
     try:
         os.mkdir(repo_name)
 
-    except FileExistsError as e:
+    except FileExistsError:
         sys.exit(f"LocalExistsError: Local repository '{repo_name}' already exists")
 
 
@@ -51,8 +51,7 @@ def create_remote_repo(g, github_username, repo_name, repo_type):
         else:
             user.create_repo(repo_name, private=False)
 
-    except GithubException as e:
-        logger.exception(e)
+    except GithubException:
         sys.exit(
             f"RemoteCreationError: Remote repository '{repo_name}' already exists "
         )
@@ -112,6 +111,5 @@ def connect_local_to_remote(repo_name, github_username, gitignore):
 
         print("Local and remote repository successfully created")
 
-    except Exception as e:
-        logger.exception(e)
+    except Exception:
         sys.exit("Local and remote repository cannot be connected")

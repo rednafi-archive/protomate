@@ -13,8 +13,12 @@ from protomate.repo_actions import (
 
 import sys
 import signal
+from protomate.utils import logfunc
+
+sys.traceback = -10
 
 
+@logfunc
 def main():
     """Main function
     """
