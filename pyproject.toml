@@ -20,7 +20,7 @@ classifiers=[
 
 [tool.poetry.dependencies]
 python = "^3.6"
-art="4.0"
+art="4.1"
 colorama="0.4.1"
 PyGithub="1.43.8"
 keyring="17.1.1"
