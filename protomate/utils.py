@@ -16,8 +16,9 @@ def create_logger(log_path="logs/logs.log"):
     """
 
     # create log folder if it doesn't exist
-    if not os.path.exists(log_path):
+    try:
         os.mkdir(log_path.split("/")[0])
+    except FileExistsError:
         open(log_path.split("/")[1], "a").close()
 
     # create a custom logger
