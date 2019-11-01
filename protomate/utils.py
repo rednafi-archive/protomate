@@ -16,10 +16,13 @@ def create_logger(log_path="logs/logs.log"):
     """
 
     # create log folder if it doesn't exist
-    try:
+    if os.path.exists(log_path.split('/')[0]):
+        with open(log_path, 'a'):
+            pass
+    else:
         os.mkdir(log_path.split("/")[0])
-    except FileExistsError:
-        open(log_path.split("/")[1], "a").close()
+        with open(log_path, 'a'):
+            pass
 
     # create a custom logger
     logger = logging.getLogger(__name__)
@@ -33,8 +36,8 @@ def create_logger(log_path="logs/logs.log"):
     file_handler = logging.FileHandler(log_path)
 
     # set handler level
-    console_handler.setLevel(logging.ERROR)
-    file_handler.setLevel(logging.ERROR)
+    console_handler.setLevel(logging.INFO)
+    file_handler.setLevel(logging.INFO)
 
     # create formatters
     console_format = logging.Formatter("%(name)s - %(levelname)s - %(message)s")
@@ -55,6 +58,7 @@ def create_logger(log_path="logs/logs.log"):
 
 # calling the logger
 logger = create_logger()
+
 
 # logfunc
 def logfunc(_func=None, *, logger=logger):
