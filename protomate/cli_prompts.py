@@ -7,8 +7,13 @@ from sty import fg, rs
 from termcolor import cprint
 import colorama
 from protomate.utils import logfunc
+import os
+
 
 colorama.init(strip=not sys.stdout.isatty())
+
+if os.getenv("RUNTIME_ENVIRONMENT") == "production":
+    sys.tracebacklimit = -100
 
 
 @logfunc
@@ -82,9 +87,9 @@ def cli():
     ).ask()
 
     gitignore = questionary.text(
-        """Gitignore(Optional):
+        """ Gitignore(Optional):
             Please enter the desired language name to create
-            .gitignore file, press enter if you don't want to:
+            gitignore file, press enter if you don't want to:
             """,
         style=style,
     ).ask()

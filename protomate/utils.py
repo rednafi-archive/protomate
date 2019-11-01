@@ -1,40 +1,91 @@
 import functools
-from loguru import logger
-from timeit import default_timer as timer
-import sys
-from pprint import pprint
+import logging
+import os
+from dotenv import load_dotenv
 
-sys.traceback = -10
-
-
-def logfunc(func):
-    @functools.wraps(func)
-    def wrapper_logfunc(*args, **kwargs):
-        try:
-            value = func(*args, **kwargs)
-        except Exception as e:
-            logger.remove()
-            logger.add(
-                sys.stdout,
-                colorize=True,
-                format="<green>{time: YYYY-MM-DD at HH:mm:ss}</green> <level>{message}</level>",
-            )
-            logger.add("logs/logfile.log", rotation="500 MB")
-            logger.exception(e)
-            sys.exit()
-        return value
-
-    return wrapper_logfunc
+load_dotenv(verbose=True)
 
 
-def timefunc(func):
-    @functools.wraps(func)
-    def wrapper_timefunc(*args, **kwargs):
-        start_time = timer()
-        value = func(*args, **kwargs)
-        end_time = timer()
-        run_time = end_time - start_time
-        print(f"Function {func.__name__} took {run_time} seconds to execute")
-        return value
+def create_logger(log_path="logs/logs.log"):
+    """Create a logger object with custom handlers. One handler
+    sends data to console and another one sends data to logfile.
+    Parameters
+    ----------
+    log_path : str
+    Returns
+    -------
+    logger: logging.Logger
+    """
 
-    return wrapper_timefunc
+    # create log folder if it doesn't exist
+    if not os.path.exists(log_path):
+        os.mkdir(log_path.split("/")[0])
+
+    # create a custom logger
+    logger = logging.getLogger(__name__)
+    if os.getenv("RUNTIME_ENVIRONMENT") == "production":
+        logger.disabled = True
+    else:
+        logger.disabled = False
+
+    # create handlers
+    console_handler = logging.StreamHandler()
+    file_handler = logging.FileHandler(log_path)
+
+    # set handler level
+    console_handler.setLevel(logging.ERROR)
+    file_handler.setLevel(logging.ERROR)
+
+    # create formatters
+    console_format = logging.Formatter("%(name)s - %(levelname)s - %(message)s")
+    file_format = logging.Formatter(
+        "\n%(asctime)s - %(name)s - %(levelname)s - %(message)s \n"
+    )
+
+    # add formatters to handlers
+    console_handler.setFormatter(console_format)
+    file_handler.setFormatter(file_format)
+
+    # add handlers to the logger
+    logger.addHandler(console_handler)
+    logger.addHandler(file_handler)
+
+    return logger
+
+
+# calling the logger
+logger = create_logger()
+
+# logfunc
+def logfunc(_func=None, *, logger=logger):
+    """A decorator that wraps the passed in function and logs
+    exceptions should one occur
+    Returns
+    -------
+    Any
+        Output of the inner function 'func'
+    Raises
+    ------
+    Exception of the inner function 'func'
+    """
+
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            try:
+                value = func(*args, **kwargs)
+                return value
+            except Exception:
+                # log the exception
+                err = "There was an exception in  "
+                err += func.__name__
+                logger.exception(err)
+
+        return wrapper
+
+    # this ensures that logfunc can be used with or without args
+    if _func is None:
+        return decorator
+    else:
+        return decorator(_func)
+
