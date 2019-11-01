@@ -1,9 +1,7 @@
 import functools
 import logging
 import os
-from dotenv import load_dotenv
-
-load_dotenv(verbose=True)
+from protomate.settings import RUNTIME_ENVIRONMENT
 
 
 def create_logger(log_path="logs/logs.log"):
@@ -23,7 +21,7 @@ def create_logger(log_path="logs/logs.log"):
 
     # create a custom logger
     logger = logging.getLogger(__name__)
-    if os.getenv("RUNTIME_ENVIRONMENT") == "production":
+    if RUNTIME_ENVIRONMENT == "production":
         logger.disabled = True
     else:
         logger.disabled = False
@@ -88,4 +86,3 @@ def logfunc(_func=None, *, logger=logger):
         return decorator
     else:
         return decorator(_func)
-
