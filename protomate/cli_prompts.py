@@ -8,11 +8,11 @@ from termcolor import cprint
 import colorama
 from protomate.utils import logfunc
 import os
-
+from protomate.settings import RUNTIME_ENVIRONMENT
 
 colorama.init(strip=not sys.stdout.isatty())
 
-if os.getenv("RUNTIME_ENVIRONMENT") == "production":
+if RUNTIME_ENVIRONMENT == "production":
     sys.tracebacklimit = -100
 
 
