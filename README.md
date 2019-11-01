@@ -1,5 +1,5 @@
-<div align="center">  
-  
+<div align="center">
+
 # Protomate
 
 
@@ -26,7 +26,7 @@ This will perform the following tasks:
 Install `protomate` via:
 
 ```
-$ pip3 install protomate==0.6.1
+$ pip install protomate
 ```
 
 ## Run the App
