@@ -26,17 +26,25 @@ def _ascii_flare():
 
 
 def _prompt_auth_info():
-    github_username = click.prompt("Github Username", type=str)
-    github_password = click.prompt("Github Password", hide_input=True)
+    username_prompt = click.style("Github Username", bold=True)
+    github_username = click.prompt(username_prompt, type=str)
+
+    password_prompt = click.style("Github Password", bold=True)
+    github_password = click.prompt(password_prompt, hide_input=True)
 
     return github_username, github_password
 
 
 def _prompt_repo_info():
-    repo_name = click.prompt("Repository Name", type=str)
+    repo_prompt = click.style("Repository Name", bold=True)
+    repo_name = click.prompt(repo_prompt, type=str)
+
     while True:
+        private_prompt = click.style(
+            "Do you want your repository to be public? (y/n)", bold=True
+        )
         is_private = click.prompt(
-            "Do you want your repository to be public? (y/n)",
+            private_prompt,
             click.Choice(["Yes", "Y", "No", "N"], case_sensitive=False),
             show_default=False,
         )
@@ -50,9 +58,13 @@ def _prompt_repo_info():
 
 
 def _prompt_gitignore_language():
-    gitignore_language = click.prompt(
+    gitignore_prompt = click.style(
         """Please enter the desired language name to create
     gitignore file, press enter if you don't want to""",
+        bold=True,
+    )
+    gitignore_language = click.prompt(
+        gitignore_prompt,
         click.Choice(PROGRAMMING_LANGUAGES, case_sensitive=False),
         show_default=False,
     )
