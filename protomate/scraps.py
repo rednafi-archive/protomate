@@ -58,7 +58,7 @@ def _prompt_gitignore_language():
     )
     return gitignore_language
 
-@logfunc
+
 def _do_github_auth(github_username, github_password):
     """Trying to log into github
     """
@@ -74,7 +74,7 @@ def _do_github_auth(github_username, github_password):
 
     return (g, user)
 
-@logfunc
+
 def _create_local_repo(repo_name):
     try:
         os.mkdir(repo_name)
@@ -98,7 +98,7 @@ def _create_remote_repo(g, github_username, repo_name, is_private):
             f"RemoteCreationError: Remote repository '{repo_name}' already exists "
         )
 
-@logfunc
+
 def _connect_local_remote(repo_name, github_username, gitignore):
 
     cmd = f"""
