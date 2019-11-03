@@ -1,28 +1,28 @@
-import click
-from protomate.languages import PROGRAMMING_LANGUAGES
-import keyring
-from github import Github
-import sys
 import os
-from github.GithubException import GithubException
-from github.GithubException import BadCredentialsException
 import subprocess
+import sys
+
 import art
+import click
+from github import Github
+from github.GithubException import BadCredentialsException, GithubException
 from sty import fg, rs
 from termcolor import cprint
 
+from protomate.languages import PROGRAMMING_LANGUAGES
+
 
 # import click_completion
+
+
 def _ascii_flare():
     """
-    Draw Protomate banner !!!
+    Draw Pr0t0mate banner !!!
     """
-    text = "proTomaTe"
-    ascii_banner = art.text2art(text, font="stforek")
-    #ascii_banner = fg(255, 213, 128) + ascii_banner + fg.rs
+    text = "protomate"
+    ascii_banner = art.text2art(text, font="glenyn-large")
+    # # ascii_banner = fg(255, 213, 128) + ascii_banner + fg.rs
     ascii_banner = fg(123, 239, 178) + ascii_banner + fg.rs
-
-
     cprint(ascii_banner, attrs=["bold"])
 
 
@@ -35,12 +35,18 @@ def _prompt_auth_info():
 
 def _prompt_repo_info():
     repo_name = click.prompt("Repository Name", type=str)
-    repo_type = click.prompt(
-        "Do you want your repository to be public? (y/n)",
-        click.Choice(["Yes", "Y", "No", "N"], case_sensitive=False),
-        show_default=False,
-    )
-    return repo_name, repo_type
+    while True:
+        is_private = click.prompt(
+            "Do you want your repository to be public? (y/n)",
+            click.Choice(["Yes", "Y", "No", "N"], case_sensitive=False),
+            show_default=False,
+        )
+        print("\nWrong Input: Please type yes(y) or no\n")
+
+        if is_private.lower() in ("yes", "y", "no", "n"):
+            break
+
+    return repo_name, is_private
 
 
 def _prompt_gitignore_language():
@@ -77,12 +83,11 @@ def _create_local_repo(repo_name):
         sys.exit(f"LocalExistsError: Local repository '{repo_name}' already exists")
 
 
-def _create_remote_repo(g, github_username, repo_name, repo_type):
+def _create_remote_repo(g, github_username, repo_name, is_private):
 
     user = g.get_user()
-
     try:
-        if repo_type == "Private":
+        if is_private.lower() in ("yes", "y"):
             user.create_repo(repo_name, private=True)
 
         else:
@@ -151,7 +156,7 @@ def cli():
         sys.exit("Operation Aborted")
 
     try:
-        repo_name, repo_type = _prompt_repo_info()
+        repo_name, is_private = _prompt_repo_info()
     except click.exceptions.Abort:
         sys.exit("Operation Aborted")
 
@@ -174,7 +179,7 @@ def cli():
         sys.exit("Operation Aborted")
 
     try:
-        _create_remote_repo(g, github_username, repo_name, repo_type)
+        _create_remote_repo(g, github_username, repo_name, is_private)
     except KeyboardInterrupt:
         sys.exit("Operation Aborted")
 
