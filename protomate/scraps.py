@@ -10,11 +10,10 @@ from sty import fg, rs
 from termcolor import cprint
 
 from protomate.languages import PROGRAMMING_LANGUAGES
+from protomate.utils import logfunc
 
 
 # import click_completion
-
-
 def _ascii_flare():
     """
     Draw Pr0t0mate banner !!!
@@ -41,9 +40,10 @@ def _prompt_repo_info():
             click.Choice(["Yes", "Y", "No", "N"], case_sensitive=False),
             show_default=False,
         )
-        print("\nWrong Input: Please type yes(y) or no\n")
+        if is_private.lower() not in ("yes", "y", "no", "n"):
+            print("\nWrong Input: Please type yes(y) or no(n)\n")
 
-        if is_private.lower() in ("yes", "y", "no", "n"):
+        else:
             break
 
     return repo_name, is_private
@@ -58,7 +58,7 @@ def _prompt_gitignore_language():
     )
     return gitignore_language
 
-
+@logfunc
 def _do_github_auth(github_username, github_password):
     """Trying to log into github
     """
@@ -74,7 +74,7 @@ def _do_github_auth(github_username, github_password):
 
     return (g, user)
 
-
+@logfunc
 def _create_local_repo(repo_name):
     try:
         os.mkdir(repo_name)
@@ -98,7 +98,7 @@ def _create_remote_repo(g, github_username, repo_name, is_private):
             f"RemoteCreationError: Remote repository '{repo_name}' already exists "
         )
 
-
+@logfunc
 def _connect_local_remote(repo_name, github_username, gitignore):
 
     cmd = f"""
