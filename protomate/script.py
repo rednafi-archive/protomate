@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+
 import os
 import subprocess
 import sys
@@ -11,8 +12,8 @@ from sty import fg, rs
 from termcolor import cprint
 
 from protomate.languages import PROGRAMMING_LANGUAGES
-from protomate.utils import logfunc
 from protomate.settings import RUNTIME_ENVIRONMENT
+from protomate.utils import logfunc
 
 if RUNTIME_ENVIRONMENT == "production":
     sys.tracebacklimit = -100

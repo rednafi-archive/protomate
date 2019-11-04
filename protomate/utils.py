@@ -1,6 +1,7 @@
 import functools
 import logging
 import os
+
 from protomate.settings import RUNTIME_ENVIRONMENT
 
 
@@ -16,12 +17,12 @@ def create_logger(log_path="logs/logs.log"):
     """
 
     # create log folder if it doesn't exist
-    if os.path.exists(log_path.split('/')[0]):
-        with open(log_path, 'a'):
+    if os.path.exists(log_path.split("/")[0]):
+        with open(log_path, "a"):
             pass
     else:
         os.mkdir(log_path.split("/")[0])
-        with open(log_path, 'a'):
+        with open(log_path, "a"):
             pass
 
     # create a custom logger
