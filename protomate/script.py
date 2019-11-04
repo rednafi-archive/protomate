@@ -29,9 +29,9 @@ def _ascii_flare():
     Draw Pr0t0mate banner !!!
     """
     text = "protomate"
-    ascii_banner = art.text2art(text, font="glenyn-large")
-    # # ascii_banner = fg(255, 213, 128) + ascii_banner + fg.rs
-    ascii_banner = fg(123, 239, 178) + ascii_banner + fg.rs
+    ascii_color = fg(123, 239, 178)
+    ascii_style = art.text2art(text, font="glenyn-large")
+    ascii_banner = ascii_color + ascii_style + fg.rs
     cprint(ascii_banner, attrs=["bold"])
 
 
