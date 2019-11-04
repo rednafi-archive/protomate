@@ -167,12 +167,12 @@ def _connect_local_remote(repo_name, github_username, gitignore):
         """
 
     try:
-        if gitignore != "" and gitignore.lower() in PROGRAMMING_LANGUAGES:
+        if gitignore is not None and gitignore.lower() in PROGRAMMING_LANGUAGES:
             cmd_gitignore
             subprocess.check_output(cmd_gitignore, shell=True)
 
-        elif gitignore != "" and gitignore.lower() not in PROGRAMMING_LANGUAGES:
-            print("Language not supported:\n Creating repository without .gitignore 😣")
+        elif gitignore is not None and gitignore.lower() not in PROGRAMMING_LANGUAGES:
+            print("Language not supported:\n Creating repository without .gitignore 🙃")
             cmd
             subprocess.check_output(cmd, shell=True)
 
