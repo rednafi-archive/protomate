@@ -13,7 +13,16 @@ from protomate.languages import PROGRAMMING_LANGUAGES
 from protomate.utils import logfunc
 
 
-# import click_completion
+class bcolors:
+    """Class for creating bold colored text
+    """
+
+    USERNAME = "\u001b[1m" + "\u001b[33m"  # bold + yellowish
+    PASSWORD = "\u001b[1m" + "\u001b[35m"  # bold + magentaish
+    REPO = "\u001b[1m" + "\u001b[36m"  # bold + cyanish
+    GITIGNORE = "\u001b[1m" + "\u001b[31;1m"  # bold + redish
+
+
 def _ascii_flare():
     """
     Draw Pr0t0mate banner !!!
@@ -26,18 +35,21 @@ def _ascii_flare():
 
 
 def _prompt_auth_info():
-    username_prompt = click.style("Github Username", bold=True)
-    github_username = click.prompt(username_prompt, type=str)
+    username_color = bcolors.USERNAME + "Github Username"
+    username_style = click.style(username_color)
+    github_username = click.prompt(username_style, type=str)
 
-    password_prompt = click.style("Github Password", bold=True)
-    github_password = click.prompt(password_prompt, hide_input=True)
+    password_color = bcolors.PASSWORD + "Github Password"
+    password_style = click.style(password_color)
+    github_password = click.prompt(password_style, hide_input=True)
 
     return github_username, github_password
 
 
 def _prompt_repo_info():
-    repo_prompt = click.style("Repository Name", bold=True)
-    repo_name = click.prompt(repo_prompt, type=str)
+    repo_color = bcolors.REPO + "Repository Name"
+    repo_style = click.style(repo_color)
+    repo_name = click.prompt(repo_style, type=str)
 
     while True:
         private_prompt = click.style(
@@ -58,13 +70,14 @@ def _prompt_repo_info():
 
 
 def _prompt_gitignore_language():
-    gitignore_prompt = click.style(
-        """Please enter the desired language name to create
-    gitignore file, press enter if you don't want to""",
-        bold=True,
+    gitignore_color = (
+        bcolors.GITIGNORE
+        + """Please enter the desired language name to create
+    gitignore file, press enter if you don't want to"""
     )
+    gitignore_style = click.style(gitignore_color)
     gitignore_language = click.prompt(
-        gitignore_prompt,
+        gitignore_style,
         click.Choice(PROGRAMMING_LANGUAGES, case_sensitive=False),
         show_default=False,
     )
