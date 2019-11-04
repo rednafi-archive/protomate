@@ -4,9 +4,7 @@
 
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/rednafi/protomate/blob/master/LICENSE) ![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/python/black)
-
 <img src="https://github.com/rednafi/protomate/blob/master/demo/demo.svg" width="900" height="700">
-
 </div>
 
 This will perform the following tasks:
