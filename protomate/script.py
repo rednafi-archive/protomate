@@ -36,6 +36,7 @@ class bcolors:
     REPO_NAME = "\u001b[1m" + "\u001b[38;5;176m"  # bold + pinkish
     REPO_TYPE = "\u001b[1m" + "\u001b[38;5;81m"  # bold + skybluish
     GITIGNORE = "\u001b[1m" + "\u001b[38;5;180m"  # bold + brownish
+    SUCCESS = "\u001b[1m" + "\u001b[38;5;192m"  # bold + lemonish
 
 
 def _ascii_flare():
@@ -77,7 +78,12 @@ def _prompt_repo_info():
             click.Choice(["Yes", "Y", "No", "N"], case_sensitive=False),
             show_default=False,
         )
-        if is_private.lower() not in ("yes", "y", "no", "n"):
+        if not isinstance(is_private, str) or is_private.lower() not in (
+            "yes",
+            "y",
+            "no",
+            "n",
+        ):
             print("\nWrong Input: Please type yes(y) or no(n)\n")
 
         else:
@@ -129,10 +135,10 @@ def _create_remote_repo(g, github_username, repo_name, is_private):
 
     user = g.get_user()
     try:
-        if is_private.lower() in ("yes", "y"):
+        if isinstance(is_private, str) and is_private.lower() in ("yes", "y"):
             user.create_repo(repo_name, private=True)
 
-        else:
+        elif isinstance(is_private, str) and is_private.lower() in ("no", "n"):
             user.create_repo(repo_name, private=False)
 
     except GithubException:
@@ -167,11 +173,14 @@ def _connect_local_remote(repo_name, github_username, gitignore):
         """
 
     try:
-        if gitignore is not None and gitignore.lower() in PROGRAMMING_LANGUAGES:
+        if isinstance(gitignore, str) and gitignore.lower() in PROGRAMMING_LANGUAGES:
             cmd_gitignore
             subprocess.check_output(cmd_gitignore, shell=True)
 
-        elif gitignore is not None and gitignore.lower() not in PROGRAMMING_LANGUAGES:
+        elif (
+            isinstance(gitignore, str)
+            and gitignore.lower() not in PROGRAMMING_LANGUAGES
+        ):
             print("Language not supported:\n Creating repository without .gitignore 🙃")
             cmd
             subprocess.check_output(cmd, shell=True)
@@ -180,7 +189,7 @@ def _connect_local_remote(repo_name, github_username, gitignore):
             cmd
             subprocess.check_output(cmd, shell=True)
 
-        print("Local and remote repository successfully created")
+        print("Local and remote repository successfully created 🎉")
 
     except Exception:
         sys.exit("Local and remote repository cannot be connected 😣")
