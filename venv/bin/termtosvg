@@ -1,0 +1,6 @@
+#!/home/redowan/code/protomate/venv/bin/python3.7
+
+import termtosvg.main
+
+if __name__ == '__main__':
+    termtosvg.main.main()
