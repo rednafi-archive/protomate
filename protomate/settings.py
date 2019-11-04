@@ -1,1 +1,2 @@
-RUNTIME_ENVIRONMENT = "dev"
+RUNTIME_ENVIRONMENT = "production"
+# RUNTIME_ENVIRONMENT = "development"

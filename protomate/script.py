@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 import os
 import subprocess
 import sys
@@ -11,6 +12,10 @@ from termcolor import cprint
 
 from protomate.languages import PROGRAMMING_LANGUAGES
 from protomate.utils import logfunc
+from protomate.settings import RUNTIME_ENVIRONMENT
+
+if RUNTIME_ENVIRONMENT == "production":
+    sys.tracebacklimit = -100
 
 
 class bcolors:
@@ -107,7 +112,7 @@ def _do_github_auth(github_username, github_password):
         user.login
 
     except BadCredentialsException:
-        sys.exit("AuthError: Username or password is incorrect")
+        sys.exit("AuthError: Username or password is incorrect 😣")
 
     return (g, user)
 
@@ -117,7 +122,7 @@ def _create_local_repo(repo_name):
         os.mkdir(repo_name)
 
     except FileExistsError:
-        sys.exit(f"LocalExistsError: Local repository '{repo_name}' already exists")
+        sys.exit(f"LocalExistsError: Local repository '{repo_name}' already exists 😣")
 
 
 def _create_remote_repo(g, github_username, repo_name, is_private):
@@ -132,7 +137,7 @@ def _create_remote_repo(g, github_username, repo_name, is_private):
 
     except GithubException:
         sys.exit(
-            f"RemoteCreationError: Remote repository '{repo_name}' already exists "
+            f"RemoteCreationError: Remote repository '{repo_name}' already exists 😣"
         )
 
 
@@ -167,7 +172,7 @@ def _connect_local_remote(repo_name, github_username, gitignore):
             subprocess.check_output(cmd_gitignore, shell=True)
 
         elif gitignore != "" and gitignore.lower() not in PROGRAMMING_LANGUAGES:
-            print("Language not supported:\n Creating repository without .gitignore")
+            print("Language not supported:\n Creating repository without .gitignore 😣")
             cmd
             subprocess.check_output(cmd, shell=True)
 
@@ -178,52 +183,52 @@ def _connect_local_remote(repo_name, github_username, gitignore):
         print("Local and remote repository successfully created")
 
     except Exception:
-        sys.exit("Local and remote repository cannot be connected")
+        sys.exit("Local and remote repository cannot be connected 😣")
 
 
 def main():
     try:
         _ascii_flare()
     except KeyboardInterrupt:
-        sys.exit("Operation Aborted")
+        sys.exit("Operation Aborted ⚠️")
 
     try:
         github_username, github_password = _prompt_auth_info()
     except click.exceptions.Abort:
-        sys.exit("Operation Aborted")
+        sys.exit("Operation Aborted ⚠️")
 
     try:
         repo_name, is_private = _prompt_repo_info()
     except click.exceptions.Abort:
-        sys.exit("Operation Aborted")
+        sys.exit("Operation Aborted ⚠️")
 
     try:
         gitignore_langugage = _prompt_gitignore_language()
     except click.exceptions.Abort:
-        sys.exit("Operation Aborted")
+        sys.exit("Operation Aborted ⚠️")
 
-    print("Thanks for all of your information, hang tight while we are at it...")
+    print("Thanks for all of your information, hang tight while we are at it..⏳")
 
     # auth
     try:
         g, user = _do_github_auth(github_username, github_password)
     except KeyboardInterrupt:
-        sys.exit("Operation Aborted")
+        sys.exit("Operation Aborted ⚠️")
 
     try:
         _create_local_repo(repo_name)
     except KeyboardInterrupt:
-        sys.exit("Operation Aborted")
+        sys.exit("Operation Aborted ⚠️")
 
     try:
         _create_remote_repo(g, github_username, repo_name, is_private)
     except KeyboardInterrupt:
-        sys.exit("Operation Aborted")
+        sys.exit("Operation Aborted ⚠️")
 
     try:
         _connect_local_remote(repo_name, github_username, gitignore_langugage)
     except KeyboardInterrupt:
-        sys.exit("Operation Aborted")
+        sys.exit("Operation Aborted ⚠️")
 
 
 if __name__ == "__main__":
