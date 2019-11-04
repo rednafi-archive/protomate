@@ -15,13 +15,22 @@ from protomate.utils import logfunc
 
 class bcolors:
     """Class for creating bold colored text
+
+    # generate ascii terminal colors with this script
+    import sys
+    for i in range(0, 16):
+        for j in range(0, 16):
+            code = str(i * 16 + j)
+            sys.stdout.write(u"\u001b[38;5;" + code + "m " + code.ljust(4))
+        print (u"\u001b[0m")
+
     """
 
-    USERNAME = "\u001b[1m" + "\u001b[38;5;208m"  # bold + orangish
+    USERNAME = "\u001b[1m" + "\u001b[38;5;209m"  # bold + orangish
     PASSWORD = "\u001b[1m" + "\u001b[38;5;112m"  # bold + greenish
-    REPO_NAME = "\u001b[1m" + "\u001b[38;5;2m"  # bold + cyanish
-    REPO_TYPE = "\u001b[1m" + "\u001b[38;5;81m"
-    GITIGNORE = "\u001b[1m" + "\u001b[38;5;180m"  # bold + redish
+    REPO_NAME = "\u001b[1m" + "\u001b[38;5;176m"  # bold + pinkish
+    REPO_TYPE = "\u001b[1m" + "\u001b[38;5;81m"  # bold + skybluish
+    GITIGNORE = "\u001b[1m" + "\u001b[38;5;180m"  # bold + brownish
 
 
 def _ascii_flare():
@@ -172,7 +181,7 @@ def _connect_local_remote(repo_name, github_username, gitignore):
         sys.exit("Local and remote repository cannot be connected")
 
 
-def cli():
+def main():
     try:
         _ascii_flare()
     except KeyboardInterrupt:
@@ -218,4 +227,4 @@ def cli():
 
 
 if __name__ == "__main__":
-    cli()
+    main()
