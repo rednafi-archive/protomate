@@ -17,10 +17,11 @@ class bcolors:
     """Class for creating bold colored text
     """
 
-    USERNAME = "\u001b[1m" + "\u001b[33m"  # bold + yellowish
-    PASSWORD = "\u001b[1m" + "\u001b[35m"  # bold + magentaish
-    REPO = "\u001b[1m" + "\u001b[36m"  # bold + cyanish
-    GITIGNORE = "\u001b[1m" + "\u001b[31;1m"  # bold + redish
+    USERNAME = "\u001b[1m" + "\u001b[38;5;208m"  # bold + orangish
+    PASSWORD = "\u001b[1m" + "\u001b[38;5;112m"  # bold + greenish
+    REPO_NAME = "\u001b[1m" + "\u001b[38;5;2m"  # bold + cyanish
+    REPO_TYPE = "\u001b[1m" + "\u001b[38;5;81m"
+    GITIGNORE = "\u001b[1m" + "\u001b[38;5;180m"  # bold + redish
 
 
 def _ascii_flare():
@@ -47,16 +48,18 @@ def _prompt_auth_info():
 
 
 def _prompt_repo_info():
-    repo_color = bcolors.REPO + "Repository Name"
+    repo_color = bcolors.REPO_NAME + "Repository Name"
     repo_style = click.style(repo_color)
     repo_name = click.prompt(repo_style, type=str)
 
+    is_private_color = (
+        bcolors.REPO_TYPE + "Do you want your repository to be public? (y/n)"
+    )
+    is_private_style = click.style(is_private_color)
+
     while True:
-        private_prompt = click.style(
-            "Do you want your repository to be public? (y/n)", bold=True
-        )
         is_private = click.prompt(
-            private_prompt,
+            is_private_style,
             click.Choice(["Yes", "Y", "No", "N"], case_sensitive=False),
             show_default=False,
         )
@@ -72,8 +75,8 @@ def _prompt_repo_info():
 def _prompt_gitignore_language():
     gitignore_color = (
         bcolors.GITIGNORE
-        + """Please enter the desired language name to create
-    gitignore file, press enter if you don't want to"""
+        + """Please enter the desired language name to create gitignore file,
+press enter if you don't want to"""
     )
     gitignore_style = click.style(gitignore_color)
     gitignore_language = click.prompt(
