@@ -137,10 +137,10 @@ def _create_remote_repo(g, github_username, repo_name, is_private):
     user = g.get_user()
     try:
         if isinstance(is_private, str) and is_private.lower() in ("yes", "y"):
-            user.create_repo(repo_name, private=True)
+            user.create_repo(repo_name, private=False)
 
         elif isinstance(is_private, str) and is_private.lower() in ("no", "n"):
-            user.create_repo(repo_name, private=False)
+            user.create_repo(repo_name, private=True)
 
     except GithubException:
         sys.exit(

@@ -93,3 +93,4 @@ def logfunc(_func=None, *, logger=logger):
         return decorator
     else:
         return decorator(_func)
+
