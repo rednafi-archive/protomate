@@ -12,7 +12,7 @@ description = "ASCII Art Library For Python"
 name = "art"
 optional = false
 python-versions = ">=2.7"
-version = "4.2"
+version = "4.3"
 
 [package.dependencies]
 coverage = ">=4.1"
@@ -256,12 +256,12 @@ python-versions = "*"
 version = "1.11.2"
 
 [metadata]
-content-hash = "f947118b2a54b15b90f949eedb2f2f1a6e90346d2e7fdee0e4a638e69ddbfd00"
+content-hash = "a75baf6b1c85705c93a2e9f440924442c68b1d96a5aa3575d22ac1912091fca8"
 python-versions = "^3.6"
 
 [metadata.hashes]
 appdirs = ["9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92", "d8b24664561d0d34ddfaec54636d502d7cea6e29c3eaf68f3df6180863e2166e"]
-art = ["113a31953e1117274df4d185ac195b670a1136b9fd85c241d478d38154ba4d27", "cb8614df7a334b94d4a3f1d83bd7dd0030b4691ddc64e6cdb01981a6ce53d052"]
+art = ["1141fce12a54ef59d881bf989be565fa9273d620935c42fafc3bf5735cb5e91e", "ca343028a630326d9a29b09ff329a1ca1db64d1701a94c17246eccd4c4917806"]
 attrs = ["08a96c641c3a74e44eb59afb61a24f2cb9f4d7188748e76ba4bb5edfa3cb7d1c", "f7b7ce16570fe9965acd6d30101a28f62fb4a7f9e926b3bbc9b61f8b04247e72"]
 black = ["1b30e59be925fafc1ee4565e5e08abef6b03fe455102883820fe5ee2e4734e0b", "c2edb73a08e9e0e6f65a0e6af18b059b8b1cdd5bef997d7a0b181df93dc81539"]
 certifi = ["e4f3620cfea4f83eedc95b24abd9cd56f3c4b146dd0177e83a21b4eb49e21e50", "fd7c7c74727ddcf00e9acd26bba8da604ffec95bf1c2144e67aff7a8b50e6cef"]
