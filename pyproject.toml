@@ -21,7 +21,7 @@ classifiers=[
 [tool.poetry.dependencies]
 python = "^3.6"
 art="4.4"
-colorama="0.4.1"
+colorama="0.4.3"
 PyGithub="1.44"
 sty= "1.0.0b12"
 termcolor="1.1.0"
